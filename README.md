@@ -52,13 +52,13 @@ ETL任务的执行引擎节点管理
 - 基于高度自由化的B/S框架,可以嵌入多元化的需求,于是我们在精卫中添加了用户管理模块,通过用户权限的概念对所有的ETL任务进行人性化的运维管理
 - 整个项目使用Maven进行构建管理,多模块之间低耦合,高拓展性
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110502_61484bf4_1097305.png "在这里输入图片标题")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110502_61484bf4_1097305.png "技术实现")
 
 
 # webKettleETL整体功能流程
 --------------------------
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110741_c24e49f7_1097305.png "在这里输入图片标题")
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0825/094017_0fbeada5_1097305.png "屏幕截图.png")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110741_c24e49f7_1097305.png "功能流程")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0825/094017_0fbeada5_1097305.png "功能流程")
 # 技术选型
 --------------------------
 
