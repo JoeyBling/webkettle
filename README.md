@@ -15,33 +15,33 @@
 
 展示平台概况
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0608/145540_063bca4f_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0608/145540_063bca4f_1097305.png)
 -  **模型设计**
 
 进行ETL模型设计调试
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0607/161330_3d1a33bc_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0607/161330_3d1a33bc_1097305.png)
 -  **任务管理**
 
 对ETL任务进行综合的调度管理以及监控
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/142406_c1d1f25c_1097305.png)
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/114021_0c347905_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0613/142406_c1d1f25c_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0613/114021_0c347905_1097305.png)
 -  **日志**
 
 ETL任务的执行日志模块
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/114003_eb22068b_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0613/114003_eb22068b_1097305.png)
 -  **节点管理**
 
 ETL任务的执行引擎节点管理
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/113944_7213e6c1_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0613/113944_7213e6c1_1097305.png)
 -  **定时调度**
 
 定时ETL任务管理
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/144118_a5e252e8_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0613/144118_a5e252e8_1097305.png)
 -  **用户管理**
 
 精卫平台的用户权限管理系统
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/141826_599b8f09_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0613/141826_599b8f09_1097305.png)
 
 #  webKettleETL技术实现
 ------------------------- 
@@ -52,13 +52,13 @@ ETL任务的执行引擎节点管理
 - 基于高度自由化的B/S框架,可以嵌入多元化的需求,于是我们在精卫中添加了用户管理模块,通过用户权限的概念对所有的ETL任务进行人性化的运维管理
 - 整个项目使用Maven进行构建管理,多模块之间低耦合,高拓展性
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110502_61484bf4_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0613/110502_61484bf4_1097305.png)
 
 
 # webKettleETL整体功能流程
 --------------------------
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110741_c24e49f7_1097305.png)
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0825/094017_0fbeada5_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0613/110741_c24e49f7_1097305.png)
+![](https://git.oschina.net/uploads/images/2017/0825/094017_0fbeada5_1097305.png)
 # 技术选型
 --------------------------
 
