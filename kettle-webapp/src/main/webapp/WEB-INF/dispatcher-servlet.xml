@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+	   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	   http://www.springframework.org/schema/mvc
+	   http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	   http://www.springframework.org/schema/tx
+	   http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <context:component-scan base-package="org.flhy.webapp" />
+
+
+    <mvc:annotation-driven>
+    	<mvc:message-converters>
+    		<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+    			<property name="objectMapper" ref="dateMapper" />
+    		</bean>
+    	</mvc:message-converters>
+    </mvc:annotation-driven>
+    
+    <bean id="dateMapper" class="org.flhy.webapp.utils.DateMapper" />
+
+	<bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">     
+         <property name="exceptionMappings">     
+             <props>     
+                 <prop key="java.lang.Exception">/exception.jsp</prop>     
+             </props>     
+         </property>     
+         <property name="statusCodes">     
+             <props>     
+                 <prop key="errors/error">500</prop>     
+                 <prop key="errors/404">404</prop>     
+             </props>     
+         </property>     
+         <!-- 设置日志输出级别，不定义则默认不输出警告等错误日志信息 -->     
+         <property name="warnLogCategory" value="WARN"></property>     
+         <!-- 默认错误页面，当找不到上面mappings中指定的异常对应视图时，使用本默认配置 -->     
+         <property name="defaultErrorView" value="errors/error"></property>     
+         <!-- 默认HTTP状态码 -->     
+         <property name="defaultStatusCode" value="500"></property>     
+     </bean>   
+     
+     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+     	<!-- 80M -->
+     	<property name="maxUploadSize" value="83886080" />
+     </bean>
+
+	<import resource="classpath*:org/flhy/container-*.xml"/>
+	<import resource="classpath*:org/sxdata/jingwei/container-*.xml"/>
+	   
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<!--192.168.1.201:3306   hadoop-->
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://192.168.1.120:3306/kettle" />
+		<property name="username" value="root" />
+		<property name="password" value="3xdata"/>
+	</bean>
+
+
+	<!-- spring集成MyBatis3 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <property name="dataSource" ref="dataSource" />  
+        <property name="mapperLocations" value="classpath:mappings/*.xml" />
+    </bean>  
+
+	<!-- 事务配置 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <tx:advice id="tx" transaction-manager="transactionManager">
+    	<tx:attributes>
+    		<tx:method name="add*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
+    		<tx:method name="create*" propagation="REQUIRED" isolation="DEFAULT"/>
+    		<tx:method name="update*" propagation="REQUIRED" isolation="DEFAULT"/>
+    		<tx:method name="delete*" propagation="REQUIRED" isolation="DEFAULT"/>
+    		<tx:method name="remove*" propagation="REQUIRED" isolation="DEFAULT"/>
+			<tx:method name="assigned*" propagation="REQUIRED" isolation="DEFAULT"/>
+    	</tx:attributes>
+    </tx:advice>
+    
+    <aop:config>
+    	<aop:pointcut expression="(execution(* org.flhy..ServiceImpl*.*(..))) or (execution(* org.sxdata.jingwei.service.Impl..*(..)))" id="pc"/>
+    	<aop:advisor advice-ref="tx" pointcut-ref="pc"/>
+    </aop:config>
+	<!-- 结束事务配置-->
+
+
+<!--     <mvc:interceptors> -->
+<!--     	<mvc:interceptor> -->
+<!--     		<mvc:mapping path="/**/*.do"/> -->
+<!--     		<mvc:exclude-mapping path="/repository/types.do"/> -->
+<!--     		<mvc:exclude-mapping path="/repository/list.do"/> -->
+<!--     		<mvc:exclude-mapping path="/repository/login.do"/> -->
+<!--     		<bean class="org.flhy.webapp.listener.LoginInterceptor" /> -->
+<!--     	</mvc:interceptor> -->
+<!--     </mvc:interceptors> -->
+
+	<!--spring集成quartz-->
+	<!-- 使用MethodInvokingJobDetailFactoryBean，任务类可以不实现Job接口，通过targetMethod指定调用方法-->
+	<bean class="org.sxdata.jingwei.util.quartzUtil.SlaveQuota" id="slaveQuartz"></bean>
+	<bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="group" value="job_work"/>
+		<property name="name" value="job_work_name"/>
+		<!--&false表示等上一个任务执行完后再开启新的任务-->
+		<property name="concurrent" value="false"/>
+		<property name="targetObject">
+			<ref bean="slaveQuartz"/>
+		</property>
+		<property name="targetMethod">
+			<value>quotaSlaveInfoRepeat</value>
+		</property>
+	</bean>
+	<bean id="myTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="name" value="work_default_name"/>
+		<property name="group" value="work_default"/>
+		<!--引用自上面配置好的jobDetail 这样就会根据自定义的时间规则调度目标方法-->
+		<property name="jobDetail">
+			<ref bean="jobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>0 0/15 * * * ? </value>
+		</property>
+	</bean>
+	<!--调度工厂  * 0/30 * * * ?  0/5 * * * * ?-->
+	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="myTrigger"/>
+			</list>
+		</property>
+	</bean>
+</beans>

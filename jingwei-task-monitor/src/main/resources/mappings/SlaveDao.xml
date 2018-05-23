@@ -1,0 +1,107 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sxdata.jingwei.dao.SlaveDao">
+
+
+    <select id="getSlaveTotalCount" resultType="java.lang.Integer">
+        select count(1) from r_slave
+    </select>
+
+    <select id="getSlaveById" resultType="org.sxdata.jingwei.entity.SlaveEntity">
+       select
+        r.ID_SLAVE as slaveId,
+        r.NAME as name,
+        r.WEB_APP_NAME as webappName,
+        r.MASTER as master,
+        r.ID_SLAVE as slaveId,
+        r.HOST_NAME as hostName,
+        r.`PORT` as port,
+        r.USERNAME as username,
+        r.PASSWORD as password
+      from r_slave r where r.ID_SLAVE=#{id}
+    </select>
+
+    <select id="getSlaveByHostName" resultType="org.sxdata.jingwei.entity.SlaveEntity">
+        select
+        r.ID_SLAVE as slaveId,
+        r.HOST_NAME as hostName,
+        r.`PORT` as port,
+        r.USERNAME as username,
+        r.PASSWORD as password
+        from r_slave r where r.HOST_NAME=#{hostName}
+    </select>
+
+    <select id="getAllSlave" resultType="org.sxdata.jingwei.entity.SlaveEntity">
+        select
+        r.NAME as name,
+        r.WEB_APP_NAME as webappName,
+        r.MASTER as master,
+        r.ID_SLAVE as slaveId,
+        r.HOST_NAME as hostName,
+        r.`PORT` as port,
+        r.USERNAME as username,
+        r.PASSWORD as password
+        from r_slave r WHERE 1=1
+        <if test='_parameter!=null and _parameter!=""'>
+            AND r.ID_SLAVE IN
+            (
+                select ID_SLAVE from
+                d_user_group_slaves_relation where USER_GROUP_NAME=#{0}
+            )
+        </if>
+    </select>
+
+    <select id="findSlaveByPageInfo" resultType="org.sxdata.jingwei.entity.SlaveEntity">
+        select
+        r.ID_SLAVE as slaveId,
+        r.HOST_NAME as hostName,
+        r.`PORT` as port,
+        r.USERNAME as username,
+        r.PASSWORD as password
+        from r_slave r WHERE 1=1
+        <if test='param3!=null and param3!=""'>
+            AND r.ID_SLAVE IN
+            (
+                select ID_SLAVE from
+                d_user_group_slaves_relation where USER_GROUP_NAME=#{2}
+            )
+        </if>
+         limit #{0},#{1}
+    </select>
+
+    <insert id="addSlave" parameterType="org.sxdata.jingwei.entity.SlaveEntity">
+      INSERT INTO r_slave VALUES (#{slaveId},#{name},#{hostName},#{port},#{webappName},#{username},#{password},#{proxyHostname},#{proxyPort},#{nonproxyHosts},#{master})
+    </insert>
+
+    <select id="selectMaxId" resultType="java.lang.Integer">
+      select MAX(r.ID_SLAVE) from r_slave r
+    </select>
+
+    <delete id="deleteTransSlave" parameterType="java.lang.Integer">
+      DELETE  FROM r_trans_slave WHERE ID_SLAVE=#{slaveId}
+    </delete>
+
+    <delete id="deleteSlaveUserGroup" parameterType="java.lang.Integer">
+      DELETE  FROM d_user_group_slaves_relation WHERE ID_SLAVE=#{slaveId}
+    </delete>
+
+    <delete id="deleteSlaveServer" parameterType="java.lang.Integer">
+      DELETE  FROM r_slave WHERE ID_SLAVE=#{slaveId}
+    </delete>
+
+    <update id="updateSlaveServer" parameterType="org.sxdata.jingwei.entity.SlaveEntity">
+        UPDATE r_slave
+        <trim prefix="set" suffixOverrides=",">
+            NAME=#{name},
+            HOST_NAME=#{hostName},
+            PORT=#{port},
+            WEB_APP_NAME=#{webappName},
+            USERNAME=#{username},
+            PASSWORD=#{password},
+            PROXY_HOST_NAME=#{proxyHostname},
+            PROXY_PORT=#{proxyPort},
+            NON_PROXY_HOSTS=#{nonproxyHosts},
+            MASTER=#{master}
+        </trim>
+        WHERE ID_SLAVE=#{slaveId}
+    </update>
+</mapper>

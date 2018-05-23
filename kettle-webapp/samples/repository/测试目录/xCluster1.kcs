@@ -1,0 +1,12 @@
+        <clusterschema>
+          <name>xCluster1</name>
+          <base_port>40000</base_port>
+          <sockets_buffer_size>2000</sockets_buffer_size>
+          <sockets_flush_interval>5000</sockets_flush_interval>
+          <sockets_compressed>Y</sockets_compressed>
+          <dynamic>N</dynamic>
+          <slaveservers>
+            <name>master</name>
+            <name>slave1</name>
+          </slaveservers>
+        </clusterschema>

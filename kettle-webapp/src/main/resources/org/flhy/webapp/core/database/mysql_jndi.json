@@ -1,0 +1,14 @@
+[{
+	xtype: "label",
+	text: "JNDI名称：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "databaseName",
+	anchor: "-5"
+},{
+	xtype: "checkbox",
+	name: "streamingResults",
+	boxLabel: 'Use Result Streaming Cursor',
+	checked: true
+}]

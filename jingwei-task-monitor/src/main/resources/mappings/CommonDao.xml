@@ -1,0 +1,31 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sxdata.jingwei.dao.CommonDao">
+
+    <select id="getDababasesConn" resultType="org.sxdata.jingwei.entity.DatabaseConnEntity">
+        select
+            d.`NAME` as name,
+            d.HOST_NAME as hostName,
+            d.`PORT` as port,
+            d.DATABASE_NAME as databaseName,
+            t.`CODE` as databaseType,
+            ID_DATABASE as databaseId
+        from r_database d INNER JOIN r_database_type t
+        on d.ID_DATABASE_TYPE=t.ID_DATABASE_TYPE
+    </select>
+
+    <delete id="deleteDatabaseMeta" parameterType="java.lang.Integer">
+      DELETE FROM r_database WHERE ID_DATABASE=#{id}
+    </delete>
+
+    <delete id="deleteDatabaseAttr" parameterType="java.lang.Integer">
+      DELETE FROM r_database_attribute WHERE ID_DATABASE=#{id}
+    </delete>
+
+    <delete id="deleteJobDatabase" parameterType="java.lang.Integer">
+        DELETE FROM r_jobentry_database WHERE ID_DATABASE=#{id}
+    </delete>
+
+    <delete id="deleteTransDatabase" parameterType="java.lang.Integer">
+        DELETE FROM r_step_database WHERE ID_DATABASE=#{id}
+    </delete>
+</mapper>

@@ -1,0 +1,206 @@
+@CHARSET "utf-8";  
+
+.x-window-mc {
+	font-size: 13px;
+}
+
+.x-tab-strip span.x-tab-strip-text {  
+    font-size: 12px;  
+}  
+  
+.x-panel-header {  
+    font-size: 12px;  
+}  
+  
+.x-tree-node {  
+    font-size: 12px;  
+}  
+  
+.x-grid3-hd-row td {  
+    font-size: 12px;  
+}  
+  
+.x-grid3-row td {  
+    font-size: 12px;  
+    line-height: 16px;  
+}  
+  
+.x-tip .x-tip-bd {  
+    font-size: 12px;  
+}  
+  
+.x-tip h3 {  
+    font-size: 12px;  
+}  
+  
+.x-tip .x-tip-bd-inner {  
+    font-size: 12px;  
+}  
+  
+.x-panel-tl .x-panel-header {  
+    font: normal 12px tahoma, arial, verdana, sans-serif;  
+}  
+  
+.x-form-field {  
+    font: 12px tahoma, arial, helvetica, sans-serif;  
+}  
+  
+.x-small-editor .x-form-field {  
+    font: 12px tahoma, arial, helvetica, sans-serif;  
+}  
+  
+.x-combo-list-item {  
+    font: 12px tahoma, arial, helvetica, sans-serif;  
+}  
+  
+.x-menu-list-item {  
+    font: 12px tahoma, arial, sans-serif;  
+}  
+  
+.x-window-tl .x-window-header {  
+    font: bold 12px tahoma, arial, verdana, sans-serif;  
+} 
+  
+.x-form-item {  
+    font: 12px tahoma, arial, helvetica, sans-serif;  
+}  
+  
+.x-grid-group-hd div {  
+    font: bold 12px tahoma, arial, helvetica, sans-serif;  
+}
+  
+.x-btn button {  
+    font-size: 12px;  
+}  
+  
+.x-toolbar td,.x-toolbar span,.x-toolbar input,.x-toolbar div,.x-toolbar select,.x-toolbar label {  
+    font-size: 12px;  
+}  
+  
+.x-tip .x-tip-body {  
+    font-size: 12px;  
+}
+
+.ext-el-mask-msg div {
+ 	font-size: 12px;
+}
+
+.x-fieldset legend {
+	font-size: 12px;
+}
+
+/*****
+	*
+	*/
+table.ConditionEditor {
+	border: 1px solid black;
+	width: 100%;
+}
+
+div.control_ct td {
+	height: 30px;
+	valign: middle;
+}
+.control_field {
+	border: 1px solid black;
+	background-image: none;
+	color: black;
+}
+
+.control_field_overCls {
+	color: red;
+	background-color: gray;
+	font-weight: bold;
+}
+
+
+.control_field_selected{
+	color: black;
+	font-weight: bold;
+}
+
+.left_field,.func_field,.right_field,.value_field,.up_field,.add_field {
+	margin: 5px 10px;
+}
+.delete_field {
+	font-size: 13px;
+	font-family: "宋体";
+}
+
+.conditions_tip {
+	color: blue;
+	font-size: 13px;
+}
+.tableBody {
+	width: 100%;
+}
+.list-operation {
+	font-size: 13px;
+	font-family: "宋体";
+	height: 25px;
+	padding-top: 5px;
+}
+.list-operation-overCls {
+	background-color: #999999;
+}
+.list-condition {
+	font-size: 13px;
+	font-family: "宋体";
+	height: 25px;
+	padding-top: 5px;
+	padding-left: 30px;
+}
+.list-condition-overCls {
+	background-color: #999999;
+}
+.x-list-body dt em {
+	font: 12px tahoma, arial, helvetica, sans-serif;  
+}
+
+
+/**.ext-gecko ***/
+/**the tree node el, contains blank tab, arrow image, folder image,text */
+.kettletree .x-tree-node-el {
+	height: 22px;
+	padding-top: 2px;
+}
+
+.ext-ie .kettletree .x-tree-node-el {
+	line-height: normal;
+}
+
+.kettletree .x-tree-node-icon {
+	margin-right: 3px;	
+	margin-left: 3px;
+}
+
+.kettletree .x-tree-node-anchor {
+	height: 20px;
+}
+
+/***
+.x-tree-node-el {
+  cursor: pointer;
+  line-height: 24px;
+}
+
+.x-tree-icon, .x-tree-ec-icon, .x-tree-elbow-line, .x-tree-elbow, .x-tree-elbow-end, .x-tree-elbow-plus, .x-tree-elbow-minus, .x-tree-elbow-end-plus, .x-tree-elbow-end-minus {
+  background-repeat: no-repeat;
+  border: 0 none;
+  height: 22px;
+  margin-top: 3px;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+}
+
+.x-tree-node-collapsed .x-tree-node-icon, .x-tree-node-expanded .x-tree-node-icon, .x-tree-node-leaf .x-tree-node-icon {
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 0 none;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  width: 24px;
+}**/

@@ -1,0 +1,1 @@
+<slaveserver><name>test</name><hostname>localhost</hostname><port>9090</port><webAppName/><username>admin</username><password>Encrypted 2be98afc86aa7f2e4cb79ce71da9fa6d4</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>Y</master><sslMode>N</sslMode></slaveserver>

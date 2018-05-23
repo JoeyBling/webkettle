@@ -1,0 +1,196 @@
+@CHARSET "utf-8";
+
+html td.mxPopupMenuItem {
+	padding: 3px 20px; font-size: 12px; font-family: '宋体'; 
+}
+
+html td.mxDisabled {
+ 	color: gray;
+}
+
+div.mxPopupMenu tr {
+	background-color: #ffffff;
+}
+
+div.mxPopupMenu tr.mxPopupMenuItemHover {
+	background-color: #000066;
+}
+
+.expense-high {
+    background-color: #e4765c;
+}
+
+.x-check-group-alt {
+    background: #D1DDEF;
+    border-top:1px dotted #B5B8C8;
+    border-bottom:1px dotted #B5B8C8;
+    margin-left: 22px;
+    padding: 5px 0px;
+}
+
+.x-check-group-clt {
+    background: #D1DDEF;
+    border-top:1px dotted #B5B8C8;
+    border-bottom:1px dotted #B5B8C8;
+    padding: 5px 0px;
+}
+
+.add {
+	background-image:url(../images/add.png) !important;
+}
+
+.delete {
+	background-image:url(../images/delete.png) !important;
+}
+
+/**
+ * 第一次加载
+ */
+#loading-mask{
+	position:absolute;
+	left:0;
+	top:0;
+    width:100%;
+    height:100%;
+    z-index:20000;
+    background-color:white;
+}
+#loading{
+	position:absolute;
+	left:45%;
+	top:40%;
+	padding:2px;
+	z-index:20001;
+    height:auto;
+}
+#loading img {
+    margin-bottom:5px;
+}
+#loading .loading-indicator{
+	background:white;
+	color:#555;
+	font:bold 13px helvetica,arial,tahoma,sans-serif;
+	padding:10px;
+	margin:0;
+    text-align:center;
+    height:auto;
+}
+
+/**
+ * 左侧菜单树
+ */
+.x-tree-node div.nav-node {
+    border-bottom: 1px solid #ccc;
+    /*background-color: #efefef;*/
+    line-height: 24px;
+   /* font-style: italic;*/
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.x-tree-node div.nav {
+    line-height: 24px;
+    padding-left: 10px;
+}
+div.nav-node .x-tree-ec-icon, div.nav .x-tree-ec-icon {
+	margin-top: 3px;
+}
+div.nav-node .x-tree-node-icon, div.nav .x-tree-node-icon {
+  height: 24px;
+  vertical-align: top;
+  width: 24px;
+
+}
+
+.nav .x-tree-ec-icon {
+    display: none;
+}
+.x-grid-row .x-grid-cell,.nav-node {
+	border-style: none;
+
+}
+
+div.navl{
+    height:28px;
+    padding-top: 6px;
+    border-bottom: 1px dashed deepskyblue;
+   /* padding-left: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-style: none;
+    vertical-align: top;*/
+}
+
+
+
+/****for ext4******/
+td.nav-node .x-grid-cell-inner {
+    border-bottom: 1px solid #ccc;
+    background-color: #efefef;
+}
+td.nav-node .x-tree-icon {
+	margin: 0;
+}
+
+td.nav-node .x-tree-expander {
+	top: 2px;
+}
+
+td.nav-node .x-tree-node-text,td.nav .x-tree-node-text {
+	font-style: italic;
+    font-size: 13px;
+    height: 24px;
+    line-height: 24px;
+}
+/***********end****************/
+
+.cm-s-default .cm-keyword {font-weight: bold;}
+
+/****************/
+.x-list-body {
+	overflow-y: scroll;'
+}
+.x-list-selected {
+  background-color: #8888ff;
+}
+.x-border-layout-ct {
+    background-color: #ffffff;
+}
+
+.header-button-Cls{
+    height:26px;
+    width:200px;
+    position:absolute;top:0px; right:120px;
+    background-color:lightblue;
+    border-radius: 0px 0px 86px 86px;
+}
+
+.header-loginInfo-Cls{
+    position:absolute;top:40px; right:163px;
+}
+
+.header-public-display{
+    display:inline-block;
+}
+
+.header-operation-Cls:first-child{
+    margin-left:30px;
+}
+.header-operation-Cls:last-child{
+    margin-left:20px;
+}
+.header-operation-Cls{
+    font-size:12px;
+}
+
+.header-split-Cls{
+    margin-left: 20px;
+}
+
+.header-operation-Cls:hover{
+    cursor:pointer;
+}
+.header-operation-Cls:link{
+    cursor:auto;
+}
+
+

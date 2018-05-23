@@ -1,0 +1,26 @@
+[{
+	xtype: "label",
+	text: "JNDI名称：",
+	style: "line-height:25px; padding-left: 5px",
+},{
+	xtype: "textfield",
+	name: "databaseName",
+	anchor: "-5"
+},{
+	xtype: "label",
+	text: "数据表空间：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "dataTablespace",
+	anchor: "-5"
+},{
+	xtype: "label",
+	text: "索引表空间：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "indexTablespace",
+	anchor: "-5"
+}]
+				

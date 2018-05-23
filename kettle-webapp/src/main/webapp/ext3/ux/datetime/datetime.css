@@ -1,0 +1,122 @@
+.bgColorCls{
+	background-color:white;
+	background-image:url('');
+}
+.x-grid3-hd-row TD
+{
+	font-size: 13px; /*改变表头字体大小*/
+}
+.x-grid3-row TD
+{
+	font-size: 12px; /*改变行内容字体大小*/
+	line-height: 12px;
+}
+
+
+.imgCls:hover{
+	border:2px solid lightcyan;
+	margin:-2px;
+	border-radius:5px;
+}
+.imgCls:link{
+	border:none;
+}
+
+.updateUGCls{
+	background-image:url(../../../ui/images/i_updateUG.png) !important;
+	background-repeat:no-repeat;
+}
+.updatePwdCls{
+	background-image:url(../../../ui/images/i_updatePwd.png) !important;
+}
+.logoutCls{
+	background-image:url(../../../ui/images/i_out.png) !important;
+}
+.OkCls{
+	background-image:url(../../../ui/images/i_ok.png) !important;
+}
+.timerCls{
+	background-image:url(../../../ui/images/i_timer.png) !important;
+}
+.powerCls{
+	background-image:url(../../../ui/images/i_power.png) !important;
+}
+.executeCls{
+	background-image:url(../../../ui/images/i_execute.png) !important;
+}
+.detailCls{
+	background-image:url(../../../ui/images/i_detail.png) !important;
+}
+.assignedSlaveCls{
+	background-image:url(../../../ui/images/i_assignedSlave.png) !important;
+}
+.assignedCls{
+	background-image:url(../../../ui/images/i_assigned.png) !important;
+}
+.compositionImgCls{
+	background-image:url(../../../ui/images/i_compositionImg.png) !important;
+}
+.refreshCls{
+	background-image:url(../../../ui/images/i_refresh.png) !important;
+}
+.databasesCls{
+	background-image:url(../../../ui/images/i_databases.png) !important;
+}
+.quatoCls{
+	background-image:url(../../../ui/images/i_quato.png) !important;
+}
+.testCls{
+	background-image:url(../../../ui/images/i_test.png) !important;
+}
+.searchCls {
+	background-image:url(../../../ui/images/i_search_16.png) !important;
+}
+.editorCls{
+	background-image:url(../../../ui/images/i_editor.png) !important;
+}
+.addCls{
+	background-image:url(../../../ui/images/add.png) !important;
+}
+.deleteCls{
+	background-image:url(../../../ui/images/i_delete.png) !important;
+}
+
+
+
+td.datetime-yms
+{
+	font: bold 12px "����";
+	overflow:hidden;
+	padding:20px;
+}
+
+.x-datetime-bottom 
+{
+	padding:2px;
+	height: 30px;
+	border-top: 1px solid;
+    background: repeat-x left top;
+    border-top-color:#a3bad9;
+    background-color:#dfecfb;
+    background-image:url(glass-bg.gif);
+}
+
+.x-hms-bg {
+	background-color: #555555;
+	font-size: 12px;
+	font-family: monospace courier sans-serif;
+	color: white;
+}
+
+.x-hms-bg td {
+	text-align: center;
+	padding: 2px;
+}
+
+.x-hour-mp, .x-minute-mp, .x-second-mp {
+	position:absolute;
+	display: none;
+}
+.x-hour-active {
+	background-color: #EEEEEE;
+}

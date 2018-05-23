@@ -1,0 +1,224 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sxdata.jingwei.dao.HadoopClusterDao">
+    <!--  -->
+    <select id="allCluster" resultType="org.pentaho.big.data.impl.cluster.NamedClusterImpl">
+        SELECT
+            r.ID_ELEMENT,
+            MAX(
+                CASE
+                WHEN  r.ATTR_KEY='name' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS name,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='hdfsHost' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS hdfsHost,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='hdfsPort' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS hdfsPort,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='hdfsUsername' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS hdfsUsername,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='hdfsPassword' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS hdfsPassword,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='jobTrackerHost' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS jobTrackerHost,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='jobTrackerPort' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS jobTrackerPort,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='zooKeeperHost' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS zooKeeperHost,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='zooKeeperPort' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS zooKeeperPort,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='oozieUrl' THEN
+                    r.ATTR_VALUE
+                END
+            ) AS oozieUrl,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='mapr' THEN
+                    CASE
+                      WHEN r.ATTR_VALUE='Y' THEN
+						TRUE
+                      WHEN r.ATTR_VALUE='N' THEN
+                        FALSE
+                    END
+                END
+            ) AS mapr,
+            MAX(
+                CASE
+                WHEN r.ATTR_KEY='lastModifiedDate' THEN
+                    r.ATTR_VALUE+0
+                END
+            ) AS lastModifiedDate
+        FROM
+            r_element_attribute r
+        GROUP BY r.ID_ELEMENT
+    </select>
+
+    <!-- 添加用户组成员表(即添加该用户组下有哪些用户) -->
+    <insert id="addCluster" parameterType="org.pentaho.big.data.impl.cluster.NamedClusterImpl">
+        insert into r_element_attribute(ID_ELEMENT_ATTRIBUTE,ID_ELEMENT,ID_ELEMENT_ATTRIBUTE_PARENT,ATTR_KEY,ATTR_VALUE)
+        values(#{0},#{1},#{2},#{3},#{4})
+    </insert>
+
+    <select id="getClusterByName" resultType="org.pentaho.big.data.impl.cluster.NamedClusterImpl">
+        SELECT
+        r.ID_ELEMENT,
+        MAX(
+        CASE
+        WHEN  r.ATTR_KEY='name' THEN
+        r.ATTR_VALUE
+        END
+        ) AS name,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='hdfsHost' THEN
+        r.ATTR_VALUE
+        END
+        ) AS hdfsHost,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='hdfsPort' THEN
+        r.ATTR_VALUE
+        END
+        ) AS hdfsPort,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='hdfsUsername' THEN
+        r.ATTR_VALUE
+        END
+        ) AS hdfsUsername,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='hdfsPassword' THEN
+        r.ATTR_VALUE
+        END
+        ) AS hdfsPassword,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='jobTrackerHost' THEN
+        r.ATTR_VALUE
+        END
+        ) AS jobTrackerHost,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='jobTrackerPort' THEN
+        r.ATTR_VALUE
+        END
+        ) AS jobTrackerPort,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='zooKeeperHost' THEN
+        r.ATTR_VALUE
+        END
+        ) AS zooKeeperHost,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='zooKeeperPort' THEN
+        r.ATTR_VALUE
+        END
+        ) AS zooKeeperPort,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='oozieUrl' THEN
+        r.ATTR_VALUE
+        END
+        ) AS oozieUrl,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='mapr' THEN
+           CASE
+                      WHEN r.ATTR_VALUE='Y' THEN
+						TRUE
+                      WHEN r.ATTR_VALUE='N' THEN
+                        FALSE
+                    END
+        END
+        ) AS mapr,
+        MAX(
+        CASE
+        WHEN r.ATTR_KEY='lastModifiedDate' THEN
+          r.ATTR_VALUE+0
+        END
+        ) AS lastModifiedDate
+        FROM
+        r_element_attribute r INNER JOIN r_element e
+        on r.ID_ELEMENT=e.ID_ELEMENT
+        WHERE e.`NAME`=#{clusterName}
+        GROUP BY r.ID_ELEMENT
+    </select>
+
+    <select id="getClusters" resultType="org.sxdata.jingwei.entity.SlaveEntity">
+        select  r.`NAME` as name,
+         r.ID_ELEMENT as slaveId
+         from r_element r
+    </select>
+
+    <insert id="addClusterEle" parameterType="java.util.Map">
+        INSERT INTO r_element VALUES (#{id},#{type},#{name})
+    </insert>
+
+    <select id="getNextId" resultType="java.lang.Integer">
+
+        <if test='param1=="r_element"'>
+            SELECT MAX(ID_ELEMENT) FROM r_element
+        </if>
+        <if test='param1=="r_element_attribute"'>
+            SELECT MAX(ID_ELEMENT_ATTRIBUTE)  FROM r_element_attribute
+        </if>
+    </select>
+
+    <select id="getEleIdByClusterName" resultType="java.lang.Integer">
+        select  r.ID_ELEMENT from r_element r WHERE name=#{clusterName}
+    </select>
+
+    <delete id="deleteEle" parameterType="java.lang.Integer">
+      DELETE FROM r_element WHERE ID_ELEMENT=#{elementId}
+    </delete>
+
+    <delete id="deleteEleAttr" parameterType="java.lang.Integer">
+      DELETE FROM r_element_attribute WHERE ID_ELEMENT=#{elementId}
+    </delete>
+
+    <update id="updateEle" parameterType="java.util.Map">
+      update r_element SET `NAME` =#{clusterName} WHERE ID_ELEMENT=#{elementId}
+    </update>
+
+    <update id="updateEleAttr" parameterType="java.util.Map">
+        update r_element_attribute
+        SET ATTR_VALUE=#{attrValue}
+        WHERE ID_ELEMENT=#{elementId} AND ATTR_KEY=#{attrKey}
+
+    </update>
+</mapper>

@@ -1,0 +1,113 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sxdata.jingwei.dao.TransDao">
+    <!--不带条件分页查询-->
+    <select id="getThisPageTrans" resultType="org.sxdata.jingwei.entity.TransformationEntity">
+        select
+        j.name as name,
+        j.ID_DIRECTORY as directoryId,
+        j.ID_TRANSFORMATION as transformationId,
+        j.CREATED_USER as createUser,
+        j.CREATED_DATE as createDate,
+        j.MODIFIED_USER as modifiedUser,
+        j.MODIFIED_DATE as modifiedDate
+        from (SELECT * FROM r_transformation ORDER BY CREATED_DATE DESC) j
+        WHERE 1=1
+        <if test='param3!=null and param3!=""'  >
+            AND j.`NAME` IN
+            (
+                select DISTINCT TASK_NAME from d_task_group_member_attribute where TASK_GROUP_NAME in
+                (
+                    select TASK_GROUP_NAME from
+                    d_user_group_tasks_relation where USER_GROUP_NAME=#{2}
+                )
+                AND TYPE="trans"
+            )
+        </if>
+         limit #{0},#{1}
+    </select>
+
+    <!--根据转换名获取转换-->
+    <select id="getTransByName" resultType="org.sxdata.jingwei.entity.TransformationEntity">
+        select
+        j.name as name,
+        j.ID_DIRECTORY as directoryId,
+        j.ID_TRANSFORMATION as transformationId,
+        j.CREATED_USER as createUser,
+        j.CREATED_DATE as createDate,
+        j.MODIFIED_USER as modifiedUser,
+        j.MODIFIED_DATE as modifiedDate
+        from  r_transformation j WHERE j.name=#{0}
+    </select>
+
+    <select id="getTotalSize" resultType="java.lang.Integer">
+        select count(1) from r_transformation j WHERE 1=1
+        <if test='_parameter!=null and _parameter!=""'  >
+            AND j.`NAME` IN
+            (
+                select DISTINCT TASK_NAME from d_task_group_member_attribute where TASK_GROUP_NAME in
+                (
+                    select TASK_GROUP_NAME from
+                    d_user_group_tasks_relation where USER_GROUP_NAME=#{0}
+                )
+                AND TYPE="trans"
+            )
+        </if>
+    </select>
+
+
+    <!--带条件分页查询-->
+    <select id="conditionFindTrans" resultType="org.sxdata.jingwei.entity.TransformationEntity">
+        select
+        j.name as name,
+        j.ID_DIRECTORY as directoryId,
+        j.ID_TRANSFORMATION as transformationId,
+        j.CREATED_USER as createUser,
+        j.CREATED_DATE as createDate,
+        j.MODIFIED_USER as modifiedUser,
+        j.MODIFIED_DATE as modifiedDate
+        from  r_transformation j where 1=1
+        <if test='param5!=null and param5!=""'  >
+            AND j.`NAME` IN
+            (
+                select DISTINCT TASK_NAME from d_task_group_member_attribute where TASK_GROUP_NAME in
+                (
+                    select TASK_GROUP_NAME from
+                    d_user_group_tasks_relation where USER_GROUP_NAME=#{4}
+                )
+                AND TYPE="trans"
+            )
+        </if>
+        <if test='param3!=null and param3!=""'  >
+           and j.name LIKE concat('%',#{2},'%')
+        </if>
+        <if test='param4!=null and param4!=""'>
+            and j.CREATED_DATE > #{3}
+        </if>
+        limit #{0},#{1}
+    </select>
+
+    <select id="conditionFindTransCount" resultType="java.lang.Integer">
+        select count(1) from r_transformation j WHERE 1=1
+        <if test='param3!=null and param3!=""'  >
+            AND j.`NAME` IN
+            (
+                select DISTINCT TASK_NAME from d_task_group_member_attribute where TASK_GROUP_NAME in
+                (
+                    select TASK_GROUP_NAME from
+                    d_user_group_tasks_relation where USER_GROUP_NAME=#{2}
+                )
+                AND TYPE="trans"
+            )
+        </if>
+        <if test='param1!=null and param1!=""'>
+            and j.name LIKE concat('%',#{0},'%')
+        </if>
+        <if test='param2!=null and param2!=""'>
+            and j.CREATED_DATE &gt; #{1}
+        </if>
+    </select>
+
+    <update id="updateTransNameforTrans" parameterType="java.lang.String">
+        UPDATE r_transformation SET NAME=#{1} WHERE NAME=#{0}
+    </update>
+</mapper>

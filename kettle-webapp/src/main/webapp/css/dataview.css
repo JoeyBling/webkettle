@@ -1,0 +1,1099 @@
+@charset "utf-8";
+/*///////////////////////////////////////////////*/
+/**************简单列表表格方式展现****************/
+/*外框*/
+.lui_dataview_classic{
+}
+/*高亮行，用于选择*/
+.lui_dataview_classic_highlight .lui_dataview_classic_link
+{
+    color:#3393cf;
+}
+.lui_dataview_classic_highlight .lui_dataview_classic_link:hover{ color: #e57b25; text-decoration:underline;}
+.lui_dataview_classic_highlight .lui_dataview_classic_icon
+{
+     width:16px; height:16px; display:block; float:left; background:url(../images/dataview/dot_blue.png); margin-top:2px; float:left;
+}
+/*行*/
+.lui_dataview_classic_row
+{
+    padding:5px 0px;position: relative;
+}
+/*默认图标*/
+.lui_dataview_classic_icon
+{
+    width:16px; height:16px; display:block; float:left; background:url(../images/dataview/dot_gray.png); margin-top:2px; position: absolute;
+}
+.lui_dataview_classic_customicon
+{
+     display:block;float:left;width:16px;padding-top:1px;position: absolute;
+}
+.lui_dataview_classic_textArea
+{
+	padding-left:18px;
+}
+/*分类*/
+.lui_dataview_classic_cate_link, .lui_dataview_classic_cate_nolink {color: #F19703; margin-right:5px; display:block; float:left;}
+/*文本*/
+.lui_dataview_classic_link, .lui_dataview_classic_nolink{ margin-right:5px; display:block; float:left; word-break: break-all;}
+/*其它信息*/
+.lui_dataview_classic_otherinfo
+{
+    color:#9e9e9e; margin-right:5px; display:block; float:left;
+}
+/*精图标*/
+.lui_dataview_classic_introduced{
+    display:block; float:left;width:23px; height:18px;  background:url(../images/dataview/jing.gif) no-repeat;
+}
+/*New图标*/
+.lui_dataview_classic_new{
+    display:block; float:left;width:23px; height:11px;  background:url(../images/dataview/list_new.png) no-repeat; margin-top:3px;
+}
+/*创建者*/
+.lui_dataview_classic_creator
+{
+    color:#9e9e9e; margin-right:5px; display:block; float:right; width:60px; overflow:hidden; display:block; white-space:nowrap; text-overflow:ellipsis;
+}
+/*创建时间*/
+.lui_dataview_classic_created
+{
+    color:#9e9e9e; margin-right:5px; display:block; float:right; width:68px;
+}
+
+/**************简单列表平铺展现****************/
+/*外框*/
+.lui_dataview_classic_tile{
+}
+/*高亮行，用于选择*/
+.lui_dataview_classic_tile_highlight .lui_dataview_classic_tile_link
+{
+    color: #3393cf;
+}
+.lui_dataview_classic_tile_highlight .lui_dataview_classic_tile_icon
+{
+     width:16px; height:16px; display:block; float:left; background:url(../images/dataview/dot_blue.png); margin-top:2px; float:left;
+}
+/*行*/
+.lui_dataview_classic_tile_row
+{
+    padding:4px 0px;position: relative;
+}
+/*默认图标*/
+.lui_dataview_classic_tile_icon
+{
+    width:16px; height:16px; display:block; float:left; background:url(../images/dataview/dot_gray.png); margin-top:2px; position: absolute;
+}
+.lui_dataview_classic_tile_customicon
+{
+    width:16px; display:block; float:left; padding-top:1px;position: absolute;
+}
+.lui_dataview_classic_tile_textArea
+{
+	padding-left:18px;
+}
+/*分类*/
+.lui_dataview_classic_tile_cate_link, .lui_dataview_classic_tile_cate_nolink {color: #F19703; margin-right:5px;}
+/*文本*/
+.lui_dataview_classic_tile_link, .lui_dataview_classic_tile_nolink{margin-right:5px; word-break: break-all;display: inline-block;}
+/*其它信息*/
+.lui_dataview_classic_tile_otherinfo
+{
+     margin-right:5px; 
+}
+/*精图标*/
+.lui_dataview_classic_tile_introduced{
+	display:inline-block; width:24px; height:18px;  background:url(../images/dataview/jing.gif) no-repeat;margin-bottom: -3px;
+}
+/*New图标*/
+.lui_dataview_classic_tile_new
+{
+    display:inline-block; width:24px; height:9px;  background:url(../images/dataview/list_new.gif) no-repeat; margin-top:5px;
+}
+/*创建者*/
+.lui_dataview_classic_tile_creator
+{
+     color:#9e9e9e; margin-right:5px; 
+}
+/*创建时间*/
+.lui_dataview_classic_tile_created
+{
+    color:#9e9e9e; margin-right:5px;
+}
+
+/*///////////////////////////////////////////////*/
+/*************portlet中图片菜单展示***************/
+/*图片菜单显示区域*/
+.lui_dataview_picmenulist, .lui_dataview_picmenu_popup{
+
+}
+/*单个图片菜单*/
+.lui_dataview_picmenu,.lui_dataview_picmenu_on,
+.lui_dataview_picmenu_selected, .lui_dataview_picmenu_selected_on,
+.lui_dataview_picmenu_more,.lui_dataview_picmenu_more_on{
+	width: 80px;
+	padding:5px;
+	display: inline-block;
+	color: #ffffff;
+}
+.lui_dataview_picmenu_content .lui_icon_l{ height:52px;}
+.lui_dataview_picmenu_txt{ padding:2px;}
+
+/* 图片菜单左边框*/
+.lui_dataview_picmenu_left{
+	background-color: #8cc6ee;
+}
+/*图片菜单右边框*/
+.lui_dataview_picmenu_right{
+	
+}
+/* 图片菜单内容*/
+.lui_dataview_picmenu_content{
+	text-align: center;
+	vertical-align: middle;
+	padding: 3px;
+	cursor: pointer;
+}
+/*图片菜单文字*/
+.lui_dataview_picmenu_txt
+{
+    width:99%;
+}
+
+/*图片菜单on左边框*/
+.lui_dataview_picmenu_on .lui_dataview_picmenu_left{
+	background-color: #2f9adb;
+	color:#fff;
+}
+
+/*更多菜单左边框*/
+.lui_dataview_picmenu_more .lui_dataview_picmenu_left{
+	background-color: #BADDF3;
+}
+
+/*更多菜单on左边框*/
+.lui_dataview_picmenu_more_on {
+	background-color: white;
+}
+.lui_dataview_picmenu_more_on .lui_dataview_picmenu_left{
+	background-color: #ff9c00;
+}
+
+/*选中菜单左边框*/
+.lui_dataview_picmenu_selected .lui_dataview_picmenu_left, .lui_dataview_picmenu_selected_on .lui_dataview_picmenu_left{
+	background-color: #ff9c00;
+}
+
+/* 弹出框 */
+.lui_portal_nav_frame .lui_dataview_picmenulist{ padding:5px 0px;}
+.lui_dataview_picmenu_popup{ padding:8px 0px;}
+
+/*************模块导航中图片菜单展示***************/
+.lui_dataview_picmenulist_mod,.lui_dataview_picmenu_popup_mod{ 
+	padding-bottom:5px; 
+}
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu,
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_on,
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_more,
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_more_on{
+	display: inline-block;
+	padding: 8px 15px 0px 15px;
+	color: #ffffff;
+}
+/*left*/
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_left{
+	width: 80px;
+	height:82px;
+	background-image: url("../images/dataview/pic_mod_1.png");
+	background-repeat:no-repeat;
+	background-position:left top
+}
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_on .lui_dataview_picmenu_left,
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_more_on .lui_dataview_picmenu_left{
+	background-image: url("../images/dataview/pic_mod_1_on.png");
+}
+/*right*/
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_right{
+	height: 100%;
+	background-repeat:no-repeat;
+	background-position:right top;
+	background-image: url("../images/dataview/pic_mod_3.png");
+}
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_on .lui_dataview_picmenu_right,
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_more_on .lui_dataview_picmenu_right{
+	background-image: url("../images/dataview/pic_mod_3_on.png");
+}
+/*content*/
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_content{
+	text-align: center;
+	vertical-align: middle;
+	padding: 3px 0px;
+	height:100%;
+	margin:0px 10px 0px 9px;
+	padding-top:6px;
+	cursor: pointer;
+	background-repeat:repeat-x;
+	background-image: url("../images/dataview/pic_mod_2.png") ;
+}
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_on .lui_dataview_picmenu_content,
+.lui_dataview_picmenulist_mod .lui_dataview_picmenu_more_on .lui_dataview_picmenu_content{
+	background-image: url("../images/dataview/pic_mod_2_on.png") ;
+}
+
+/*///////////////////////////////////////////////*/
+/**********************幻灯片 *******************/
+.lui_dataview_slide_content {
+    width: 100%;
+    height: 195px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.lui_dataview_slide_content a {
+    display: block;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+.lui_dataview_slide_content img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.lui_dataview_slide_content .lui_dataview_slide_bg {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: #000;
+    filter: alpha(opacity = 60);
+    opacity: 0.6;
+    cursor: pointer;
+}
+.lui_dataview_slide_content h3 {
+    padding: 0 2% 14px;
+    width:96%;
+    height:26px;
+    line-height:30px;
+    text-align: left;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 2;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+.lui_dataview_slide_content .lui_dataview_slide_btbar {
+	left:50%; bottom:8px;right:auto;
+}
+.lui_dataview_slide_btbar li:last-child {
+	margin-right:0
+}
+.lui_dataview_slide_btbar li {
+	border-radius: 50%;
+}
+.lui_dataview_slide_content ul {
+    position: absolute;
+    list-style-type: none;
+    z-index: 4;
+    bottom: 8px;
+    right: 12px;
+}
+.lui_dataview_slide_content ul li {
+    float: left;
+    list-style: none;
+    width: 8px;
+    height: 8px;
+    margin-left: 10px;
+    border-radius: 50%;
+    /*background: url(../images/dataview/dataview_slide_bg.png) no-repeat 50%;*/
+  	background-color: #ddd;
+    cursor: pointer;
+    filter: alpha(opacity = 40);
+    opacity: 0.4;
+}
+.lui_dataview_slide_content .lui_dataview_slide_on {
+	background-color:#ef2d36;
+	/*background-image: url(../images/dataview/dataview_slide_bg_selected.png);*/
+    filter: alpha(opacity = 100);
+    opacity: 1;
+}
+
+
+.lui_dataview_slide_content:hover .lui_dataview_slide_pre {
+	left:4px;
+}
+.lui_dataview_slide_content:hover .lui_dataview_slide_next {
+	right:4px;
+}
+.lui_dataview_slide_change:hover{
+	filter: alpha(opacity = 100);
+	opacity: 1;
+}
+.lui_dataview_slide_change {
+	display:block;
+	position: absolute;
+	width:24px;
+	height:40px;
+	margin-top:-20px;
+	transition:all 0.2s;
+	filter: alpha(opacity = 50);
+	opacity: 0.5;
+	top:50%;
+	z-index: 10;
+	text-align: center;
+	cursor: pointer;
+}
+.lui_dataview_slide_change i{
+	width:24px;
+	height:40px;
+	display: block;
+}
+.lui_dataview_slide_pre {
+	 left:-30px;
+}
+.lui_dataview_slide_pre i{
+	 background:url(../images/dataview/slide_prev.png) 50% no-repeat;
+}
+.lui_dataview_slide_next {
+	 right:-30px;
+}
+.lui_dataview_slide_next i{
+	background:url(../images/dataview/slide_next.png) 50% no-repeat;
+}
+.lui_dataview_slide_imgDiv {
+	float:left;
+}
+.lui_dataview_slide_container {
+	position: absolute;
+}
+/*///////////////////////////////////////////////*/
+/******** 文本菜单默认展现 ********/
+.lui_dataview_textmenu li { line-height: 22px;height:22px;float: left;background: url(../images/li_bg.png) no-repeat left center; list-style:none;}
+.lui_dataview_textmenu li a {margin-left: 8px; width:90%; }
+.lui_dataview_textmenu li a:hover {color: #3396cf}
+
+/******** 文本菜单按钮展现 ********/
+.lui_dataview_textmenu_btn {
+}
+.lui_dataview_textmenu_btn_item_l {
+	margin:2px;
+	display:inline-block;
+	background-color:#51B6EC;
+	cursor:pointer;
+}
+.lui_dataview_textmenu_btn_item_r {
+}
+.lui_dataview_textmenu_btn_item_c {
+	color:#FFFFFF;
+	font-size: 14px;
+	padding:8px 16px;
+}
+.lui_dataview_textmenu_btn_item_hover{
+	background-color: #FF9C00;
+}
+
+/*///////////////////////////////////////////////*/
+/***************默认展现***************/
+/*顶层*/
+.lui_dataview_treemenu2{
+}
+/*第一层*/
+.lui_dataview_treemenu2_lv1_all
+{
+    margin:15px 0px;
+    overflow:hidden;
+    zoom:1;
+}
+.lui_dataview_treemenu2_lv1_l{
+}
+.lui_dataview_treemenu2_lv1_r{
+}
+.lui_dataview_treemenu2_lv1_c
+{
+    width:86px;
+    height:24px;
+    line-height:24px;
+    margin-top:4px;
+    padding:0 10px;
+    float:left;
+    background:url(../images/dataview/navi_c_m_l_title_bg.png) right top no-repeat;
+}
+.lui_dataview_treemenu2_lv1_c a
+{
+    text-align:center;
+    font-size:14px;
+    color:#fff;
+    /*padding-left:3px;
+    padding-right:9px;*/
+    /* 超过宽度用.隐藏 */
+    width:100%; 
+    display:block;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow:ellipsis; 
+}
+.lui_dataview_treemenu2_lv1_c a:hover{
+}
+.lui_dataview_treemenu2_lv1_c span
+{
+    line-height:24px;
+    font-size:14px;
+    color:#fff;
+    /*padding-left:3px;
+    padding-right:9px;*/
+    /* 超过宽度用.隐藏 */
+    width:100%; 
+    display:block;
+    overflow:hidden; 
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+/*第二层*/
+.lui_dataview_treemenu2_lv2_all
+{
+    margin-left:115px; 
+    font-size:14px; 
+    overflow:hidden; 
+}
+.lui_dataview_treemenu2_lv2_all:after
+{
+    clear:both; content:"";
+}
+.lui_dataview_treemenu2_lv2_all:after
+{
+    clear:both; content:"";
+}
+.lui_dataview_treemenu2_lv2_all li
+{
+    padding:6px 0; 
+    margin-right:25px; 
+    float:left; 
+    white-space:nowrap;
+    list-style: none;
+}
+.lui_dataview_treemenu2_lv2_all li a
+{
+    font-size:14px;
+}
+.lui_dataview_treemenu2_lv2_all li a:hover
+{
+    color:#e79005;
+    text-decoration:underline;
+}
+.lui_dataview_treemenu2_lv2_all li span
+{
+    font-size:14px;
+}
+
+/***************分类展现***************/
+/*顶层*/
+.lui_dataview_treemenu2_cate{
+	/*padding: 6px 10px;*/
+}
+/*第一层*/
+.lui_dataview_treemenu2_cate_lv1_all{
+    clear: both;
+	padding:5px 0; 
+	border-bottom:1px solid #eee;
+}
+.lui_dataview_treemenu2_cate_lv1_all:after{ display:block; content:'clear'; clear:both; line-height:0; visibility:hidden;}
+
+.lui_dataview_treemenu2_cate_lv1_l{
+	margin-right:8px;
+	float:left;
+}
+.lui_dataview_treemenu2_cate_lv1_r{
+}
+.lui_dataview_treemenu2_cate_lv1_c.lui_dataview_treemenu2_cate_lv1_first{
+	width:80px; 
+}
+.lui_dataview_treemenu2_cate_lv1_c{
+	margin:5px 8px 5px 0; 
+	float:left;
+	padding-left: 10px;
+}
+.lui_dataview_treemenu2_cate_lv1_c a, .lui_dataview_treemenu2_cate_lv1_c span{
+	color:#e38641; 
+	word-break:break-all;
+}
+.lui_dataview_treemenu2_cate_lv1_c a{
+	text-decoration:underline；
+}
+.lui_dataview_treemenu2_cate_lv1_c a:hover, .lui_dataview_treemenu2_cate_lv1_c span:hover{ color:#c85f10; font-weight:bold;}
+
+/*第二层*/
+.lui_dataview_treemenu2_cate_lv2_all{
+	float:left;
+	width: 80%;
+}
+.lui_dataview_treemenu2_cate_lv2_all:after{ 
+	display:block; 
+	content:'clear'; 
+	clear:both; 
+	line-height:0; 
+	visibility:hidden;
+}
+
+.lui_dataview_treemenu2_cate_lv2_all li{
+	padding:0 10px; 
+	margin:5px 0; 
+	border-left:1px solid #d5d5d5; 
+	float:left;
+	list-style:none;
+}
+.lui_dataview_treemenu2_cate_lv2_all li a{
+	color:#6b6b6b;
+}
+.lui_dataview_treemenu2_cate_lv2_all li a:hover{
+	text-decoration:underline; color:#3a3a3a;
+}
+
+/*///////////////////////////////////////////////*/
+/*顶层*/
+.lui_dataview_treemenu3
+{
+}
+/*第一层*/
+.lui_dataview_treemenu3_lv1_all
+{
+    padding:10px 0;
+    border-bottom:1px solid #e2e2e2;
+}
+.lui_dataview_treemenu3_lv1_l{
+}
+.lui_dataview_treemenu3_lv1_r{
+}
+.lui_dataview_treemenu3_lv1_c
+{
+    text-align:center;
+}
+.lui_dataview_treemenu3_lv1_c a
+{
+    font-size:14px;
+    color:#4bb5e7;
+    font-weight:bold;
+}
+.lui_dataview_treemenu3_lv1_c a:hover{
+}
+.lui_dataview_treemenu3_lv1_c span
+{
+     font-size:14px;
+     color:#4bb5e7;
+     font-weight:bold;
+     text-align:center;
+}
+
+/*第二层*/
+.lui_dataview_treemenu3_lv2_all
+{
+    margin:15px 0px;
+    overflow:hidden;
+    zoom:1;
+}
+.lui_dataview_treemenu3_lv2_l
+{
+}
+.lui_dataview_treemenu3_lv2_r{
+}
+.lui_dataview_treemenu3_lv2_c
+{
+   width:86px;
+   height:24px;
+   line-height:24px;
+   margin-top:4px;
+   padding:0 10px;
+   float:left;
+   background:url(../images/dataview/navi_c_m_l_title_bg.png) right top no-repeat;
+}
+.lui_dataview_treemenu3_lv2_c a
+{
+    text-align:center;
+    font-size:14px;
+    color:#fff;
+    /* 超过宽度用.隐藏 */
+    width:100%; 
+    display:block;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow:ellipsis; 
+
+}
+.lui_dataview_treemenu3_lv2_c a:hover{
+}
+.lui_dataview_treemenu3_lv2_c span
+{
+     line-height:24px;
+     font-size:14px;
+     color:#fff;
+     /* 超过宽度用.隐藏 */
+     width:100%; 
+     display:block;
+     overflow:hidden; 
+     white-space:nowrap;
+     text-overflow:ellipsis; 
+}
+
+/*第三层*/
+.lui_dataview_treemenu3_lv3_all
+{
+     margin-left:115px; 
+     font-size:14px; 
+     overflow:hidden; 
+}
+.lui_dataview_treemenu3_lv3_all:after
+{
+    clear:both; content:"";
+}
+.lui_dataview_treemenu3_lv3_all::after
+{
+    clear:both; content:"";
+}
+.lui_dataview_treemenu3_lv3_all li
+{
+    padding:6px 0; 
+    margin-right:25px; 
+    float:left; 
+    white-space:nowrap;
+    list-style: none;
+}
+.lui_dataview_treemenu3_lv3_all li a
+{
+    font-size:14px;
+}
+.lui_dataview_treemenu3_lv3_all li a:hover
+{
+    color:#e79005;
+    text-decoration:underline;
+}
+.lui_dataview_treemenu3_lv3_all li span
+{
+    font-size:14px;
+}
+
+
+/*瀑布式树结构*/
+.lui_dataview_treemenu_fall{ width:100%; height:100%}
+.lui_dataview_treemenu_fall tr td{ border-left:1px solid #f1f1f1; padding-left:10px; vertical-align:top}
+.lui_dataview_treemenu_fall tr .lui_dataview_treemenu_fall_firstCol{ border-left:none;}
+.lui_dataview_treemenu_fall tr td a{ padding-top:4px; padding-bottom:4px; cursor:pointer}
+.lui_dataview_treemenu_fall tr td a:hover{ color:#3393cf}
+.lui_dataview_treemenu_fall_lv_1_txt{ color:#3393cf;  font-size:14px; font-weight:bold}
+.lui_dataview_treemenu_fall_lv_1_txt:hover{color:#3393cf; }
+.lui_dataview_treemenu_fall_lv_2_txt{ color:#636363;  font-size:14px; font-weight:bold}
+.lui_dataview_treemenu_fall_lv_2_txt:hover{ color:#636363; }
+.lui_dataview_treemenu_fall_lv_2_child{ padding-left:10px; }
+.lui_dataview_treemenu_fall_lv_3_txt:hover{ color:#666}
+
+/*平面式树形结构*/
+.lui_dataview_treemenu_flat_text { padding:5px 10px; }
+.lui_dataview_treemenu_flat_text_hover {background-color: #f0f0f0;}
+.lui_dataview_treemenu_flat_children {margin-left:15px;}
+.lui_dataview_treemenu_flat_selected { color:#3e9ece; }
+.lui_dataview_treemenu_flat_selected .lui_dataview_treemenu_flat_text{background-color: #f0f0f0; color:#3393cf; }
+.lui_dataview_treemenu_flat_selected .lui_dataview_treemenu_flat_text a{ color:#3393cf;}
+.lui_view_doc_operation{ color:#47b5e6; text-decoration:underline}
+
+
+
+/*列表数据展示*/
+.lui_dataview_listtable_table{table-layout: fixed;}
+.lui_dataview_listtable_table th{ height:28px; line-height:28px; border-bottom:1px solid #e0e0e0; font-weight:bold; text-align:center; color:#868686}
+.lui_dataview_listtable_table tr td{ height:30px; line-height:30px; text-align:center; border-bottom:1px dotted #919191; word-break:break-all;}
+.lui_dataview_listtable_table tr .lui_dataview_listtable_firstTd{ text-align:left;}
+
+/*@分类数据展示*/
+.lui_dataview_cate {
+}
+
+.lui_dataview_cate ul li {
+	list-style: none;
+}
+
+.lui_dataview_cate .lui_dataview_cate_item {
+	CURSOR: pointer;
+	padding: 4px;
+	overflow: hidden;
+	width: 95%;
+}
+
+.lui_dataview_cate .lui_dataview_cate_item_content {
+	position: relative;
+	height: 19px;
+}
+
+.lui_dataview_cate ul {
+	width: 100%;
+}
+
+.lui_dataview_cate .lui_dataview_cate_item_content div {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.lui_dataview_cate .lui_dataview_cate_all_box li{
+	position: relative;
+	height: 26px;
+}
+
+.lui_dataview_cate .lui_dataview_cate_item.lui_icon_on {
+	color: #3eb2e6;
+}
+
+.lui_dataview_cate .lui_dataview_cate_item_txt {
+	min-width: 100px;
+	margin-left: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	position: absolute;
+	left: 0;
+	right: 20px;
+}
+
+.lui_dataview_cate .lui_dataview_cate_item_sign {
+	margin-top: 12px;
+	margin-right: 6px;
+	position: relative;
+	float: right;
+}
+
+.lui_dataview_cate .lui_dataview_cate_item_sign .lui_dataview_cate_item_sign_mtr1 {
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-width: 5px;
+	border-style: dashed dashed dashed solid;
+	border-color: transparent;
+	border-left-color: #C1C1C1;
+	right: 0;
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+}
+
+.lui_dataview_cate .lui_dataview_cate_item_sign .lui_dataview_cate_item_sign_mtr2 {
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-width: 5px;
+	border-style: dashed dashed dashed solid;
+	border-color: transparent;
+	position: absolute;
+	top: 50%;
+	margin-top: -8px;
+	border-left-color: white;
+	right: 2px;
+}
+
+.lui_dataview_cate .lui_dataview_cate_item_sign_dis {
+	width: 11px;
+	height: 11px;
+}
+
+.lui_dataview_cate .lui_icon_on .lui_dataview_cate_item_sign {
+	border-left-color: #FFFFFF;
+}
+
+.lui_dataview_cate_popup {
+	background-color: white;
+	min-height: 27px;
+}
+
+/*@图片列表*/
+.lui_dataview_image{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-color: white;
+}
+
+.lui_dataview_image .lui_dataview_image_content{
+	overflow: hidden;
+	float: left;
+	left: 32px;
+	right: 32px;
+	height: 100%;
+}
+
+.lui_dataview_image .lui_dataview_image_content.vertical{
+	height: auto;
+	width: 100%;
+	top: 32px;
+	bottom: 32px;
+	left: auto;
+	right:auto;
+}
+
+.lui_dataview_image_light_entity img{ border:1px solid #e9e9e9;}
+
+.lui_dataview_image table{
+	left: 0;
+	top: 0;
+	margin: 0;
+	table-layout: fixed;
+}
+
+.lui_dataview_image table td{
+	text-align: center;
+	padding: 20px;
+}
+
+.lui_dataview_image a{
+	padding: 0;
+	display: block;
+	margin: 0 auto;
+}
+
+.lui_dataview_image .lui_dataview_image_left{
+	background:url(../images/dataview/hotpic_nav_prev_no.png) no-repeat center;
+	width: 32px;
+	height: 80%;
+	float: left;
+}
+.lui_dataview_image .lui_dataview_image_left.hasNext{
+	background:url(../images/dataview/hotpic_nav_prev.png) no-repeat center;
+}
+
+.lui_dataview_image .lui_dataview_image_right.hasNext{
+	background: url(../images/dataview/hotpic_nav_next.png) no-repeat center;
+}
+
+.lui_dataview_image .lui_dataview_image_right{
+	background:url(../images/dataview/hotpic_nav_next_no.png) no-repeat center;
+	width: 32px;
+	height: 80%;
+	float: right;
+}
+.lui_dataview_image .lui_dataview_image_top.hasNext{
+	background:url(../images/dataview/hotpic_nav_prev2.png) no-repeat center;
+}
+
+.lui_dataview_image .lui_dataview_image_bottom.hasNext{
+	background: url(../images/dataview/hotpic_nav_next2.png) no-repeat center;
+}
+
+
+.lui_dataview_image .lui_dataview_image_bottom{
+	background: url(../images/dataview/hotpic_nav_next2_no.png) no-repeat center;
+	width: 100%;
+	height: 32px;
+	bottom: 0;
+	position: absolute;
+}
+
+.lui_dataview_image .lui_dataview_image_top{
+	background: url(../images/dataview/hotpic_nav_prev2_no.png) no-repeat center;
+	width: 100%;
+	height: 32px;
+	top: 0;
+	position: absolute;
+}
+
+.lui_dataview_image.border{
+	/*border:  1px solid #cecece*/
+}
+
+.lui_dataview_html_div {
+	width:100%;overflow-x: hidden;overflow-y: auto;word-break: break-all;
+}
+/*分类概览*/
+.lui_flow_overview{ padding:3px; margin-top:3px; background:#fff;}
+.lui_flow_viewContent h1{ height:33px; line-height:33px; font-size:18px; text-align:center; color:#383838}
+.flow_viewBoxHeader{ height:28px; line-height:26px; background:url(../images/dataview/flow_viewBox_bg.png) repeat-x left top; border-bottom:1px solid #82d0f4; position:relative; padding-left:9px}
+.flow_viewBoxHeader a{font-size:15px;color:#0084d7}
+.flow_viewBoxHeader .trig{ width:8px; height:5px; background:url(../images/dataview/flow_trig.png) no-repeat left top; position:absolute; left:12px; bottom:-1px;}
+.lui_flow_overview .flow_viewBox{ margin-bottom:5px;}
+
+/*顶层*/
+.lui_flow_overview_content{
+	/*padding: 6px 10px;*/
+}
+/*第一层*/
+.lui_flow_overview_content_lv1_all{
+	padding:5px 0; 
+	border-bottom:1px solid #eee;
+}
+.lui_flow_overview_content_lv1_all:after{ display:block; content:'clear'; clear:both; line-height:0; visibility:hidden;}
+
+.lui_flow_overview_content_lv1_l{
+	margin-right:8px;
+	float:left;
+}
+.lui_flow_overview_content_lv1_r{
+}
+.lui_flow_overview_content_lv1_c.lui_flow_overview_content_lv1_first{
+	width:150px; 
+}
+.lui_flow_overview_content_lv1_c{
+	margin:5px 8px 5px 0; 
+	float:left;
+	padding-left: 10px;
+}
+.lui_flow_overview_content_lv1_c a, .lui_flow_overview_content_lv1_c span{
+	color:#4a4a4a;
+	font-weight:bold;
+	word-break:break-all;
+}
+.lui_flow_overview_content_lv1_c a:hover, .lui_flow_overview_content_lv1_c span:hover{ color:#1a85d7;}
+
+
+/*第二层*/
+.lui_flow_overview_content_lv2_all{
+	float:left;
+	width: 80%;
+}
+.lui_flow_overview_content_lv2_all:after{ 
+	display:block; 
+	content:'clear'; 
+	clear:both; 
+	line-height:0; 
+	visibility:hidden;
+}
+
+.lui_flow_overview_content_lv2_all li{
+	padding:0 10px; 
+	margin:5px 0; 
+	border-left:1px solid #d5d5d5; 
+	float:left;
+	list-style:none;
+}
+.lui_flow_overview_content_lv2_all li a{
+	color:#6b6b6b;
+}
+.lui_flow_overview_content_lv2_all li a:hover{
+	text-decoration:underline;
+}
+.lui_ask_btn{ height:22px!important}
+.lui_expert_askBtn_2{ height:22px!important; line-height:22px!important}
+
+
+
+.lui_doc_portlet_dl_a dt {
+	border-bottom: 1px solid #dadada;
+	padding: 3px 0 5px 5px;
+	margin-bottom: 5px;
+}
+
+.lui_doc_portlet_dl_a dt a {
+	color: #000;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 24px;
+}
+
+.lui_doc_portlet_dl_a dt span {
+	color: #06c;
+	font-size: 12px;
+	font-weight: normal;
+	margin-left: 5px;
+}
+
+.lui_doc_portlet_dl_a dd {
+	border-bottom: 1px solid #dadada;
+	padding: 0 0 10px 5px;
+	line-height: 24px;
+}
+
+.lui_doc_portlet_dl_a dd a {
+	margin-right: 5px;
+	color: #666;
+	line-height: 24px
+}
+
+.lui_doc_portlet_dl_a dd span {
+	color: #f30;
+	margin-left: 3px
+}
+
+
+/* 新版 导航 第一层*/
+.lui_dataview_treemenu2_portal_lv1_all{ padding:5px 0 0;}
+.lui_dataview_treemenu2_portal_lv1_c{ height:26px; line-height:26px; width:100%;}
+.lui_dataview_treemenu2_portal_lv1_c a{ font-size:14px; font-weight:bold; background:url(../images/dataview/portal_nav_bg.png) no-repeat left center; display:inline-block; height:26px; padding-left:20px; color:#3a3a3a;}
+.lui_dataview_treemenu2_portal_lv1_c a:after{ clear:both;}
+
+.lui_dataview_treemenu2_portal_lv2_all{ width:100%!important; padding:2px 0 5px; border-bottom:1px dashed #dadada; zoom:1;}
+.lui_dataview_treemenu2_portal_lv2_all:after{ display:block; content:'clear'; clear:both; line-height:0; visibility:hidden;}
+.lui_dataview_treemenu2_portal_lv2_all li{ float:left; list-style:none; margin-right:12px; padding:2px 4px; zoom:1;}
+.lui_dataview_treemenu2_portal_lv2_all li a{ color:#3b3b3b;}
+.lui_dataview_treemenu2_portal_lv2_all li a.selected{ color:#4eb7ee; text-decoration:underline;}
+.lui_dataview_treemenu2_portal_lv2_all li a:hover{ text-decoration:underline;}
+
+/** 推荐专家 **/
+.lui_expert_km_nav{ margin-left:-1px; margin-top:-1px;}
+.lui_expert_ask_btn a{ background:#f5f5f5; border:1px solid #cecece; color:#101010; padding:0px 5px; height:18px; line-height:18px;}
+.lui_expert_ask_btn:hover a{ background:#e6e6e6; color:#101010;}
+
+.lui_expert_km_selected{ border-left:3px solid #51b6ec; background:#fff;}
+.lui_expert_km_selected .lui_expert_nv_tri_right{ display:none;}
+.lui_expert_km_selected .lui_nav_img_sel{ margin-left:-3px;}
+.lui_expert_intro_btn{ background:#f5f6f8 url(../images/dataview/icon_zj_nor.png) no-repeat 10px center; color:#101010; border:1px solid #cecece;}
+.lui_expert_intro_btn:hover{ background:#fff url(../images/dataview/icon_zj_nor.png) no-repeat 10px center; color:#51b6ec; border:1px solid #51b6ec;}
+
+#multidoc_content{ padding:18px;}
+.lui_expert_fdSignature{ background:#f8f8f8;}
+
+.lui_dataview_text{ padding:10px;}
+.lui_dataview_text h2{height:46px;line-height:46px;font-size:16px;color:#333;background:#fbfbfb!important;border-bottom:1px solid #e5e5e5;text-indent:24px}
+.lui_dataview_text ul{list-style:none;}
+.lui_dataview_text ul li{ margin-bottom:10px; position:relative; *display:inline;*zoom:1}
+.lui_dataview_text ul li span{font-size:16px;height:16px;line-height:16px;float:left;margin-right:10px;margin-top:3px}
+.lui_dataview_text ul li .order{ position:absolute; left:0px; top:0px; font-size:13px; background:#adadad;  width:16px; color:#fff; height:16px;line-height:16x;text-align:center; border-radius:50%;*margin-top:1px}
+.lui_dataview_text ul li.first_order .order{ background:#f00; }
+.lui_dataview_text ul li.secend_order .order{ background:#ff7200; }
+.lui_dataview_text ul li.third_order .order{ background:#ff7200;}
+
+.lui_dataview_text ul li .title{font-size:14px;  line-height:22px;height:22px； }
+.lui_dataview_text ul li .title a{color:#000; font-size:12px; padding-left:25px;}
+.lui_dataview_text ul li .title a:hover{ color: #3393cf; text-decoration:underline;}
+.lui_dataview_text ul li .view-count{text-indent:25px;font-size:12px;color:#adadad;line-height:20px;height:20px}
+.lui_dataview_text ul li .view-count b{color:#965d32}
+
+.lui_dataview_imgtext{ padding:10px;}
+.lui_dataview_imgtext ul li{ list-style:none; margin-bottom:10px; border-bottom:1px solid #eee; padding-bottom:10px;}
+.lui_dataview_imgtext li>div{ display:table; width: 100%; table-layout:fixed;}
+.lui_dataview_imgtext .pic_box{ display:none;}
+.lui_dataview_imgtext .text_box{ display:table-cell;}
+.lui_dataview_imgtext .text_box a{ color:#000; line-height:22px;}
+.lui_dataview_imgtext .text_box a:hover{ color:#3393cf;}
+.lui_dataview_imgtext .text_box a i{ display:inline-block; font-style:normal; background:#adadad; color:#fff; margin-right: 10px; width:16px; height: 16px; line-height: 16px; text-align:center; border-radius:50%;}
+.lui_dataview_imgtext ul li.first_order .text_box i{ background:#f00; }
+.lui_dataview_imgtext ul li.secend_order .text_box i{ background:#ff7200; }
+.lui_dataview_imgtext ul li.third_order .text_box i{ background:#ff7200;}
+.lui_dataview_imgtext .creator{ display:none;}
+.lui_dataview_imgtext .created{ display:none;}
+.lui_dataview_imgtext .view-count{ display:none; color:#adadad; line-height:20px;}
+
+/*当前状态*/
+.lui_dataview_imgtext .current .pic_box{ display:table-cell; width:65px; 
+box-sizing:content-box;
+-moz-box-sizing:content-box; /* Firefox */
+-webkit-box-sizing:content-box; /* Safari */}
+.lui_dataview_imgtext .current .pic_box img{ width:65px; height:80px; border:1px solid #eee; }
+.lui_dataview_imgtext .current .pic_box a{ display:block; width:65px;}
+.lui_dataview_imgtext .current .text_box{ display:table-cell; padding-left:10px; vertical-align: top;}
+.lui_dataview_imgtext .current .creator{ padding-top:5px;}
+.lui_dataview_imgtext .current .creator,
+.lui_dataview_imgtext .current .created{ display:block;  line-height: 20px; color:#adadad;}
+.lui_dataview_imgtext .current .view-count{ display: block;}
+
+.lui_dataview_image_content .created{ padding-top:3px; color:#adadad;}
+.lui_dataview_image_content img{ margin-bottom:5px;}
+.lui_dataview_image_entity{ position: relative; display:inline-block;}
+.lui_dataview_image_entity .badge{ 
+    position: absolute;  bottom:18px; margin-left:-3px;
+    display:inline-block; height:20px; line-height:20px; 
+    background:#ff3535; font-size:12px; color:#fff; padding-left:10px; padding-right:10px;}
+.lui_dataview_image_entity .badge:before{
+    position: absolute; right:-6px; top:0px; margin-left:6px;
+    display:block;width: 6px; height:20px; content:""; background:url(../images/dataview/badge.png) no-repeat right top; 
+}

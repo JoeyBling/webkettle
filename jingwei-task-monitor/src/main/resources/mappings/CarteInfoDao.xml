@@ -1,0 +1,79 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sxdata.jingwei.dao.CarteInfoDao">
+
+    <!--添加节点指标信息-->
+    <insert id="insertCarteInfo" parameterType="org.sxdata.jingwei.entity.CarteInfoEntity">
+        insert into carte_info
+        (n_date,slave_id,thread_num,job_num,trans_num,free_mem,total_mem,used_mem_percent,load_avg,finished_job_num,finished_trans_num,host_free_mem,host_cpu_usage,host_free_disk)
+         values
+        (#{nDate},#{slaveId},#{threadNum},#{jobNum},#{transNum},#{freeMem},#{totalMem},#{usedMemPercent},#{loadAvg},#{finishedJobNum},#{finishedTransNum},#{hostFreeMem},#{hostCpuUsage},#{hostFreeDisk})
+    </insert>
+
+    <select id="getAllSlaveQuato" resultType="org.sxdata.jingwei.entity.CarteInfoEntity">
+        select
+        c.host_cpu_usage as hostCpuUsage,
+        c.host_free_mem as hostFreeMem,
+        c.load_avg as loadAvg,
+        c.thread_num as threadNum,
+        c.carte_record_id as carteRecordId,
+        c.slave_id as slaveId,
+        c.n_date as nDate
+        from carte_info c
+        where c.n_date&lt;=#{1} and c.n_date>=#{0}
+    </select>
+
+    <!--根据节点ID获取该节点的所有指标信息-->
+    <select id="getSlaveQuatoBySlaveId" resultType="org.sxdata.jingwei.entity.CarteInfoEntity">
+        select
+        c.host_cpu_usage as hostCpuUsage,
+        c.host_free_mem as hostFreeMem,
+        c.load_avg as loadAvg,
+        c.thread_num as threadNum,
+        c.carte_record_id as carteRecordId,
+        c.slave_id as slaveId,
+        c.n_date as nDate,
+        c.job_num as jobNum,
+        c.trans_num as transNum,
+        c.host_free_disk as hostFreeDisk
+        from carte_info c
+        where c.n_date&lt;=#{1} and c.n_date>=#{0} and c.slave_id=#{2}
+    </select>
+
+    <!--根据节点ID获取该节点下某个指标的信息 以平均值方式展现-->
+    <select id="slaveQuatoByAvg" resultType="org.sxdata.jingwei.entity.CarteInfoEntity">
+        select al.c_slave_id,al.thisHour as xHour,
+        truncate(AVG(al.c_load_avg),2) as loadAvg,
+        truncate(avg(SUBSTRING(al.c_host_cpu_usage,1,LENGTH(al.c_host_cpu_usage)-1)),2) as hostCpuUsage,
+        truncate(AVG(SUBSTRING(al.c_host_free_mem,1,LENGTH(al.c_host_free_mem)-2)),0) as hostFreeMem,
+        truncate(avg(SUBSTRING(al.c_host_free_disk,1,LENGTH(al.c_host_free_disk)-2)),0) as hostFreeDisk,
+        truncate(AVG(al.c_thread_num),0) as threadNum,
+        truncate(AVG(al.c_trans_num),0) as transNum,
+        truncate(AVG(al.c_job_num),0) as jobNum
+        from
+        (select c.load_avg as c_load_avg,c.slave_id as c_slave_id,c.host_cpu_usage as c_host_cpu_usage,
+        c.host_free_mem as c_host_free_mem,c.host_free_disk as c_host_free_disk,
+        c.job_num as c_job_num,c.trans_num as c_trans_num,c.thread_num as c_thread_num,
+        c.n_date as c_n_date,SUBSTRING(DATE_FORMAT(c.n_date,"%Y-%m-%d %H-%i"),12,2) as thisHour
+        from carte_info c where c.n_date&lt;=#{1} and c.n_date>#{0} and c.slave_id=#{2})
+        al GROUP BY al.thisHour,al.c_slave_id
+    </select>
+
+    <!--根据节点ID获取该节点下某个指标的信息 以最大值方式展现-->
+    <select id="slaveQuatoByMax" resultType="org.sxdata.jingwei.entity.CarteInfoEntity">
+        select al.c_slave_id,al.thisHour as xHour,
+        MAX(al.c_load_avg) as loadAvg,
+        MAX(SUBSTRING(al.c_host_cpu_usage,1,LENGTH(al.c_host_cpu_usage)-1)) as hostCpuUsage,
+        MAX(SUBSTRING(al.c_host_free_mem,1,LENGTH(al.c_host_free_mem)-2)) as hostFreeMem,
+        MAX(SUBSTRING(al.c_host_free_disk,1,LENGTH(al.c_host_free_disk)-2)) as hostFreeDisk,
+        MAX(al.c_thread_num) as threadNum,
+        MAX(al.c_trans_num) as transNum,
+        MAX(al.c_job_num) as jobNum
+        from
+        (select c.load_avg as c_load_avg,c.slave_id as c_slave_id,c.host_cpu_usage as c_host_cpu_usage,
+        c.host_free_mem as c_host_free_mem,c.host_free_disk as c_host_free_disk,
+        c.job_num as c_job_num,c.trans_num as c_trans_num,c.thread_num as c_thread_num,
+        c.n_date as c_n_date,SUBSTRING(DATE_FORMAT(c.n_date,"%Y-%m-%d %H-%i"),12,2) as thisHour
+        from carte_info c where c.n_date&lt;=#{1} and c.n_date>#{0} and c.slave_id=#{2})
+        al GROUP BY al.thisHour,al.c_slave_id
+    </select>
+</mapper>

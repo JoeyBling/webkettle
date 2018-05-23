@@ -1,0 +1,9 @@
+06-24 20:50:12 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "QRTZ_LOCKS" not found; SQL statement:
+SELECT * FROM QRTZ_LOCKS WHERE SCHED_NAME = 'scheduler' AND LOCK_NAME = ? FOR UPDATE [42102-131]
+06-24 20:50:13 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "QRTZ_LOCKS" not found; SQL statement:
+SELECT * FROM QRTZ_LOCKS WHERE SCHED_NAME = 'scheduler' AND LOCK_NAME = ? FOR UPDATE [42102-131]
+06-24 20:50:14 jdbc[2]: SQLException
+org.h2.jdbc.JdbcSQLException: Table "QRTZ_LOCKS" not found; SQL statement:
+SELECT * FROM QRTZ_LOCKS WHERE SCHED_NAME = 'scheduler' AND LOCK_NAME = ? FOR UPDATE [42102-131]

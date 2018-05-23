@@ -1,0 +1,90 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.sxdata.jingwei.dao.ExecutionTraceDao">
+
+    <insert id="addExecutionTrace" parameterType="org.flhy.ext.Task.ExecutionTraceEntity">
+      INSERT INTO task_execution_log
+      (jobName,startTime,endTime,execMethod,status,executionConfiguration,executionLog,type)
+      VALUES (#{jobName},#{startTime},#{endTime},#{execMethod},#{status},#{executionConfiguration},#{executionLog},#{type})
+    </insert>
+
+    <select id="getAllLogByPage" resultType="org.flhy.ext.Task.ExecutionTraceEntity">
+        select
+        e.fireId as fireId,
+        e.jobName as jobName,
+        e.startTime as startTime,
+        e.endTime as endTime,
+        e.execMethod as execMethod,
+        e.`status` as status,
+        e.executionConfiguration as executionConfiguration,
+        e.executionLog as executionLog,
+         e.type as type
+      from (select * from task_execution_log ORDER BY endTime DESC) e WHERE 1=1
+        <if test='param7!=null and param7!=""'>
+            and  e.jobName IN
+            (
+                select  d.TASK_NAME from d_task_group_member_attribute d
+                WHERE d.TASK_GROUP_NAME IN
+                (
+                    select TASK_GROUP_NAME from d_user_group_tasks_relation
+                    WHERE USER_GROUP_NAME=#{6}
+                )
+            )
+        </if>
+        <if test='param3!=null and param3!=""'>
+            and e.status = #{2}
+        </if>
+        <if test='param4!=null and param4!=""'>
+            and e.type = #{3}
+        </if>
+        <if test='param5!=null and param5!=""'  >
+            and e.startTime >= #{4}
+        </if>
+        <if test='param6!=null and param6!=""'>
+            and e.jobName = #{5}
+        </if>
+      limit #{0},#{1}
+    </select>
+
+    <select id="getAllLogCount" resultType="java.lang.Integer">
+      SELECT  COUNT(1) FROM task_execution_log e WHERE 1=1
+        <if test='param5!=null and param5!=""'>
+            and  e.jobName IN
+            (
+                select  d.TASK_NAME from d_task_group_member_attribute d
+                WHERE d.TASK_GROUP_NAME IN
+                (
+                    select TASK_GROUP_NAME from d_user_group_tasks_relation
+                    WHERE USER_GROUP_NAME=#{4}
+                )
+            )
+        </if>
+        <if test='param1!=null and param1!=""'>
+            and e.status = #{0}
+        </if>
+        <if test='param2!=null and param2!=""'>
+            and e.type = #{1}
+        </if>
+        <if test='param3!=null and param3!=""'  >
+            and e.startTime >= #{2}
+        </if>
+        <if test='param4!=null and param4!=""'>
+            and e.jobName = #{3}
+        </if>
+    </select>
+
+    <select id="getTraceById" resultType="org.flhy.ext.Task.ExecutionTraceEntity">
+        select
+        e.fireId as fireId,
+        e.jobName as jobName,
+        e.startTime as startTime,
+        e.endTime as endTime,
+        e.execMethod as execMethod,
+        e.`status` as status,
+        e.executionConfiguration as executionConfiguration,
+        e.executionLog as executionLog,
+        e.type as type
+        from task_execution_log e WHERE e.fireId=#{id}
+    </select>
+
+</mapper>

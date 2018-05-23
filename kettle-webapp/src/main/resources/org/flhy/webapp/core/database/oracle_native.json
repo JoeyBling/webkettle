@@ -1,0 +1,61 @@
+[{
+	xtype: "label",
+	text: "主机名称：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "hostname",
+	anchor: "-5",
+	value: 'localhost'
+},{
+	xtype: "label",
+	text: "数据库名称：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "databaseName",
+	anchor: "-5",
+	value: 'orcl'
+},{
+	xtype: "label",
+	text: "数据表空间：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "dataTablespace",
+	anchor: "-5"
+},{
+	xtype: "label",
+	text: "索引表空间：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "indexTablespace",
+	anchor: "-5"
+},{
+	xtype: "label",
+	text: "端口号：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "port",
+	anchor: "-5",
+	value: 1521
+},{
+	xtype: "label",
+	text: "用户名：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "username",
+	anchor: "-5",
+	value: 'scott'
+},{
+	xtype: "label",
+	text: "密码：",
+	style: "line-height:25px; padding-left: 5px"
+},{
+	xtype: "textfield",
+	name: "password",
+	anchor: "-5"
+}]

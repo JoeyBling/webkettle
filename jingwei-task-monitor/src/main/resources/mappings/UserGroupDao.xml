@@ -1,0 +1,191 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sxdata.jingwei.dao.UserGroupDao">
+    <!--分页获取用户组 -->
+    <select id="selectUserGroupByPage" resultType="org.sxdata.jingwei.entity.UserGroupEntity">
+        select
+            g.ID_USER_GROUP as userGroupId,
+            g.USER_GROUP_NAME as userGroupName,
+            g.USER_GROUP_DESC as userGroupDesc
+        from d_user_group g where 1=1
+        <if test='param3!=null and param3!=""'  >
+            and g.USER_GROUP_NAME LIKE concat('%',#{2},'%')
+        </if>
+        limit #{0},#{1}
+    </select>
+
+   <!--查询所有用户组 -->
+    <select id="allUserGroup" resultType="org.sxdata.jingwei.entity.UserGroupEntity">
+        select
+        g.ID_USER_GROUP as userGroupId,
+        g.USER_GROUP_NAME as userGroupName,
+        g.USER_GROUP_DESC as userGroupDesc
+        from d_user_group g
+    </select>
+
+    <!--查询用户组的总数量 该查询只传入一个String类型参数 该参数使用_parameter表示 -->
+    <select id="userGroupConut" resultType="java.lang.Integer">
+        select
+       COUNT(1)
+        from d_user_group WHERE 1=1
+        <if test='_parameter!=null and _parameter!=""'  >
+            and USER_GROUP_NAME LIKE concat('%',#{0},'%')
+        </if>
+    </select>
+
+    <!-- 根据用户组查询当前用户组下的所有用户 -->
+    <select id="getUsersByUserGroupName" resultType="org.sxdata.jingwei.entity.UserGroupAttributeEntity">
+        select
+            a.ID_USERGROUP_MEMBER_ATTRIBUTE as groupAttributeId,
+            a.USER_GROUP_NAME as userGroupName,
+            a.USER_NAME as userName,
+            a.SLAVE_PERMISSION_TYPE as slavePremissonType,
+            a.TASK_PERMISSION_TYPE as taskPremissionType,
+            a.USER_TYPE as userType
+            from d_user_group_member_attribute a
+        where a.USER_GROUP_NAME = #{name}
+    </select>
+
+    <!-- 根据用户名查询当前用户的权限相关信息 -->
+    <select id="getInfoByUserName" resultType="org.sxdata.jingwei.entity.UserGroupAttributeEntity">
+        select
+        a.ID_USERGROUP_MEMBER_ATTRIBUTE as groupAttributeId,
+        a.USER_GROUP_NAME as userGroupName,
+        a.USER_NAME as userName,
+        a.SLAVE_PERMISSION_TYPE as slavePremissonType,
+        a.TASK_PERMISSION_TYPE as taskPremissionType,
+        a.USER_TYPE as userType
+        from d_user_group_member_attribute a
+        where a.USER_NAME = #{name}
+    </select>
+
+    <!-- 根据用户组id获取当前用户可见的任务组 -->
+    <select id="getTaskGroupsByUserGroupName" resultType="org.sxdata.jingwei.entity.TaskUserRelationEntity">
+        select
+            d.TASK_GROUP_NAME as taskGroupName,
+            d.ID_USERGROUP_TASKS_RELATION as relationId,
+            d.USER_GROUP_NAME as userGroupName,
+            d.TYPE as type
+            from d_user_group_tasks_relation d
+        where d.USER_GROUP_NAME=#{name}
+    </select>
+
+    <!-- 根据用户组名获取当前用户可见的节点 -->
+    <select id="getSlavesByUserGroupName" resultType="org.sxdata.jingwei.entity.SlaveUserRelationEntity">
+       select
+        d.ID_SLAVE as slaveId,
+        d.ID_USERGROUP_SLAVES_RELATION as relationId,
+        d.USER_GROUP_NAME as userGroupName,
+        d.TYPE as type
+        from d_user_group_slaves_relation d
+      where d.USER_GROUP_NAME=#{name}
+    </select>
+
+    <!-- 添加用户组 -->
+    <insert id="addUserGroup" parameterType="org.sxdata.jingwei.entity.UserGroupEntity">
+        insert into d_user_group(USER_GROUP_NAME,USER_GROUP_DESC) values(#{userGroupName},#{userGroupDesc})
+    </insert>
+
+    <!-- 添加用户组成员表(即添加该用户组下有哪些用户) -->
+    <insert id="addUserGroupAttribute" parameterType="org.sxdata.jingwei.entity.UserGroupAttributeEntity">
+        insert into d_user_group_member_attribute(USER_GROUP_NAME,USER_NAME,SLAVE_PERMISSION_TYPE,TASK_PERMISSION_TYPE,USER_TYPE,CREATE_DATE)
+         values(#{userGroupName},#{userName},#{slavePremissonType},#{taskPremissionType},#{userType},#{createDate})
+    </insert>
+
+    <!-- 添加用户组可见的节点记录 -->
+    <insert id="addUserSlaveRelation" parameterType="org.sxdata.jingwei.entity.SlaveUserRelationEntity">
+        insert into d_user_group_slaves_relation(ID_SLAVE,USER_GROUP_NAME) values(#{slaveId},#{userGroupName})
+    </insert>
+
+    <!-- 添加用户组可见的任务组记录 -->
+    <insert id="addTaskUserRelation" parameterType="org.sxdata.jingwei.entity.TaskUserRelationEntity">
+       insert into d_user_group_tasks_relation(TASK_GROUP_NAME,USER_GROUP_NAME) values(#{taskGroupName},#{userGroupName})
+    </insert>
+
+    <!--修改用户组-->
+    <update id="updateUserGroup" parameterType="org.sxdata.jingwei.entity.UserGroupEntity">
+        UPDATE d_user_group
+        <trim prefix="set" suffixOverrides=",">
+            USER_GROUP_NAME=#{userGroupName},
+            USER_GROUP_DESC=#{userGroupDesc},
+        </trim>
+        WHERE ID_USER_GROUP=#{userGroupId}
+    </update>
+
+    <!--删除用户组-->
+    <delete id="deleteUserGroupByName">
+        delete from d_user_group where USER_GROUP_NAME=#{name}
+    </delete>
+
+    <!--删除用户组下的所有用户-->
+    <delete id="deleteUserAttributeByGroupName">
+        delete from d_user_group_member_attribute where USER_GROUP_NAME=#{name}
+    </delete>
+
+    <!--根据用户名删除用户用户成员表中的记录-->
+    <delete id="deleteUserAttributeByName">
+        delete from d_user_group_member_attribute where USER_NAME=#{username}
+    </delete>
+
+    <!--删除用户组下可见的节点记录-->
+    <delete id="deleteSlaveRelationByGroupName">
+        delete from d_user_group_slaves_relation where USER_GROUP_NAME=#{name}
+    </delete>
+
+    <!--删除用户组下可见的任务组记录-->
+    <delete id="deleteTaskRelationByGroupName">
+        delete from d_user_group_tasks_relation where USER_GROUP_NAME=#{name}
+    </delete>
+
+    <!--根据用户组名或者用户id查找用户组-->
+    <select id="selectUserGroupByNameOrId" resultType="org.sxdata.jingwei.entity.UserGroupEntity">
+        select
+        g.ID_USER_GROUP as userGroupId,
+        g.USER_GROUP_NAME as userGroupName,
+        g.USER_GROUP_DESC as userGroupDesc
+        from d_user_group g WHERE 1=1
+        <if test='param1!=null and param1!=""'  >
+           AND g.USER_GROUP_NAME=#{0}
+        </if>
+        <if test='param2!=null'  >
+           AND g.ID_USER_GROUP=#{1}
+        </if>
+    </select>
+
+    <!--修改用户组在其它关系表中的用户组名-->
+    <update id="updateUserGroupNameForRelation">
+        UPDATE
+        <if test='param1=="d_user_group_member_attribute"'  >
+            d_user_group_member_attribute
+        </if>
+        <if test='param1=="d_user_group_slaves_relation"'  >
+            d_user_group_slaves_relation
+        </if>
+        <if test='param1=="d_user_group_tasks_relation"'  >
+            d_user_group_tasks_relation
+        </if>
+        <trim prefix="set" suffixOverrides=",">
+            USER_GROUP_NAME=#{2}
+        </trim>
+        WHERE USER_GROUP_NAME=#{1}
+    </update>
+
+    <!--修改用户组-->
+    <update id="updateUserGroupAttrByName" parameterType="org.sxdata.jingwei.entity.UserGroupAttributeEntity">
+        UPDATE d_user_group_member_attribute
+        <trim prefix="set" suffixOverrides=",">
+            <if test='slavePremissonType!=null'  >
+                SLAVE_PERMISSION_TYPE=#{slavePremissonType},
+            </if>
+            <if test='taskPremissionType!=null'  >
+                TASK_PERMISSION_TYPE=#{taskPremissionType},
+            </if>
+            <if test='userType!=null'  >
+                USER_TYPE=#{userType},
+            </if>
+            <if test='userGroupName!=null and userGroupName!=""'  >
+                USER_GROUP_NAME=#{userGroupName}
+            </if>
+        </trim>
+        WHERE USER_NAME=#{userName}
+    </update>
+</mapper>

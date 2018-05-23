@@ -1,0 +1,222 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sxdata.jingwei.dao.TaskGroupDao">
+    <!--获取该用户下所有的任务组 分页形式获取-->
+    <select id="getAllTaskGroup" resultType="org.sxdata.jingwei.entity.TaskGroupEntity">
+        select
+            d.ID_TASK_GROUP as taskGroupId,
+            d.TASK_GROUP_NAME as taskGroupName,
+            d.TASK_DESC as taskGroupDesc,
+            d.CREATE_DATE as createDate
+        from  (SELECT * FROM d_task_group ORDER BY CREATE_DATE DESC) d
+        WHERE 1=1
+        <if test='param3!=null and param3!=""'>
+            AND d.TASK_GROUP_NAME IN
+            (
+                SELECT TASK_GROUP_NAME FROM d_user_group_tasks_relation WHERE
+                USER_GROUP_NAME=#{2}
+            )
+        </if>
+        <if test='param4!=null and param4!=""'>
+            AND d.TASK_GROUP_NAME  LIKE concat('%',#{3},'%')
+        </if>
+        <if test='param5!=null and param5!=""'>
+            AND d.CREATE_DATE>#{4}
+        </if>
+        limit #{0},#{1}
+    </select>
+
+
+    <!--获取所有的任务组 不分页形式获取-->
+    <select id="getAllTaskGroupNoLimit" resultType="org.sxdata.jingwei.entity.TaskGroupEntity">
+        select
+        d.ID_TASK_GROUP as taskGroupId,
+        d.TASK_GROUP_NAME as taskGroupName,
+        d.TASK_DESC as taskGroupDesc
+        from d_task_group d
+    </select>
+
+    <!--获取任务组总数量-->
+    <select id="getTotalCountTaskGroup" resultType="java.lang.Integer">
+        select COUNT(1) from d_task_group d
+        WHERE 1=1
+        <if test='_parameter!=null and _parameter!=""'>
+            AND d.TASK_GROUP_NAME IN
+            (
+                SELECT TASK_GROUP_NAME FROM d_user_group_tasks_relation WHERE
+                USER_GROUP_NAME=#{0}
+            )
+        </if>
+    </select>
+
+    <!--添加任务组-->
+    <insert id="addTaskGroup" parameterType="org.sxdata.jingwei.entity.TaskGroupEntity">
+        insert into d_task_group
+        (d_task_group.TASK_GROUP_NAME,d_task_group.TASK_DESC,d_task_group.CREATE_DATE)
+        VALUES (#{taskGroupName},#{taskGroupDesc},#{createDate})
+    </insert>
+
+    <!--为任务组中添加任务-->
+    <insert id="addTaskGroupAttribute" parameterType="org.sxdata.jingwei.entity.TaskGroupAttributeEntity">
+        insert into
+        d_task_group_member_attribute (TASK_GROUP_NAME,TYPE,ID_TASK,TASK_NAME,TASK_PATH)
+        values (#{taskGroupName},#{type},#{taskId},#{taskName},#{taskPath})
+    </insert>
+
+    <!--获取该用户下的所有转换-->
+    <select id="getAllTrans" resultType="org.sxdata.jingwei.entity.TransformationEntity">
+        select
+        j.name as name,
+        j.ID_DIRECTORY as directoryId,
+        j.ID_TRANSFORMATION as transformationId
+        from  r_transformation j WHERE 1=1
+        <if test='_parameter!=null and _parameter!=""'  >
+            AND j.`NAME` IN
+            (
+                select DISTINCT TASK_NAME from d_task_group_member_attribute where TASK_GROUP_NAME in
+                (
+                    select TASK_GROUP_NAME from
+                    d_user_group_tasks_relation where USER_GROUP_NAME=#{0}
+                )
+                AND TYPE="trans"
+            )
+        </if>
+    </select>
+
+    <!--获取该用户下的所有作业-->
+    <select id="getAllJob" resultType="org.sxdata.jingwei.entity.JobEntity">
+        select
+        j.name as name,
+        j.ID_DIRECTORY as directoryId,
+        j.ID_JOB as jobId
+        from  r_job j WHERE 1=1
+        <if test='_parameter!=null and _parameter!=""'  >
+            AND j.`NAME` IN
+            (
+                select DISTINCT TASK_NAME from d_task_group_member_attribute where TASK_GROUP_NAME in
+                (
+                    select TASK_GROUP_NAME from
+                    d_user_group_tasks_relation where USER_GROUP_NAME=#{0}
+                )
+                AND TYPE="job"
+            )
+        </if>
+    </select>
+
+    <!--修改任务组 当前只支持修改任务组名以及任务组备注-->
+    <update id="updateTaskGroup" parameterType="org.sxdata.jingwei.entity.TaskGroupEntity">
+        UPDATE d_task_group
+        <trim prefix="set" suffixOverrides=",">
+            <if test='taskGroupName!=null and taskGroupName!=""'>
+                TASK_GROUP_NAME=#{taskGroupName},
+            </if>
+            <if test='taskGroupDesc!=null'>
+                TASK_DESC=#{taskGroupDesc}
+            </if>
+        </trim>
+        WHERE ID_TASK_GROUP=#{taskGroupId}
+    </update>
+
+    <!--修改任务组明细表中的任务组名   不会单独调用;多用于与修改任务组的语句一起调用 -->
+    <update id="updateTaskGroupAttributes" parameterType="org.sxdata.jingwei.entity.TaskGroupAttributeEntity">
+        UPDATE d_task_group_member_attribute
+        <trim prefix="set" suffixOverrides=",">
+            TASK_GROUP_NAME=#{1}
+        </trim>
+        WHERE TASK_GROUP_NAME=#{0}
+    </update>
+
+    <!--修改任务组明细表中的任务名  不会单独调用;多用于与修改任务名的语句一起调用 -->
+    <update id="updateTaskNameforAttr" parameterType="org.sxdata.jingwei.entity.TaskGroupAttributeEntity">
+        UPDATE d_task_group_member_attribute
+        <trim prefix="set" suffixOverrides=",">
+            TASK_NAME=#{1},
+            TASK_PATH=#{3}
+        </trim>
+        WHERE TASK_NAME=#{0} AND TYPE=#{2}
+    </update>
+
+    <!--根据任务组ID获取任务组-->
+    <select id="getTaskGroupById" resultType="org.sxdata.jingwei.entity.TaskGroupEntity">
+        select
+         d.ID_TASK_GROUP as taskGroupId,
+        d.TASK_GROUP_NAME as taskGroupName,
+        d.TASK_DESC as taskGroupDesc
+        from d_task_group d
+        where d.ID_TASK_GROUP=#{id}
+    </select>
+
+    <!--根据任务组名获取该任务组下的所有任务-->
+    <select id="getTaskGroupAttributesByName" resultType="org.sxdata.jingwei.entity.TaskGroupAttributeEntity">
+        select
+            d.ID_TASK as taskId,
+            d.TASK_NAME as taskName,
+            d.TASK_PATH as taskPath,
+            d.TASK_GROUP_NAME as taskGroupName,
+            d.ID_TASK_GROUP_MEMBER_ATTRIBUTE as groupAttributeId,
+            d.TYPE as type
+        from d_task_group_member_attribute d
+        where d.TASK_GROUP_NAME=#{0}
+    </select>
+
+    <!--根据任务组名删除任务组下的所有任务-->
+    <delete id="deleteTaskGroupAttributesByName">
+      delete from d_task_group_member_attribute where TASK_GROUP_NAME=#{0}
+    </delete>
+
+    <!--根据任务组名删除任务组-->
+    <delete id="deleteTaskGroupByName">
+        delete from d_task_group where TASK_GROUP_NAME=#{0}
+    </delete>
+
+    <!--查询某个任务组下是否包含了某个任务-->
+    <select id="isContainsTask" resultType="java.lang.Integer">
+        select count(0) from
+          (select d.TASK_NAME as d_task_name,
+            d.TYPE as d_type
+            from d_task_group_member_attribute d where d.TASK_GROUP_NAME=#{2}) re
+        where re.d_task_name=#{0} and re.d_type=#{1}
+
+    </select>
+
+    <!--根据任务名以及任务类型 把该任务从所有任务组中移除-->
+    <delete id="deleteTaskGroupAttributesByTaskName">
+        delete from d_task_group_member_attribute
+        where  TASK_NAME=#{0} AND TYPE=#{1}
+    </delete>
+
+    <!--根据任务名 任务类型查找该任务所在的所有任务组-->
+    <select id="getTaskGroupByTaskName" resultType="org.sxdata.jingwei.entity.TaskGroupAttributeEntity">
+      select  d.TASK_GROUP_NAME as taskGroupName from d_task_group_member_attribute d
+      where d.TASK_NAME=#{0} and d.TYPE=#{1}
+    </select>
+
+    <!--修改用户组-任务组关系表中的任务组名   不会单独调用,多用于与修改任务组的语句一起调用 -->
+    <update id="updateTaskGroupForTaskRelation">
+        UPDATE d_user_group_tasks_relation
+        <trim prefix="set" suffixOverrides=",">
+            TASK_GROUP_NAME=#{1}
+        </trim>
+        WHERE TASK_GROUP_NAME=#{0}
+    </update>
+
+    <!--根据任务组名 删除任务组与用户组关系表中的记录-->
+    <delete id="deleteUserTaskRelationByName">
+        delete from d_user_group_tasks_relation
+        where  TASK_GROUP_NAME=#{0}
+    </delete>
+
+    <select id="getTaskGroupByThisUser" resultType="org.sxdata.jingwei.entity.TaskGroupEntity">
+        SELECT
+        d.ID_TASK_GROUP as taskGroupId,
+        d.TASK_GROUP_NAME as taskGroupName,
+        d.TASK_DESC as taskGroupDesc
+        from d_task_group d WHERE 1=1
+        <if test='_parameter!=null and _parameter!=""'>
+            AND  d.TASK_GROUP_NAME IN
+            (
+                select TASK_GROUP_NAME from d_user_group_tasks_relation WHERE
+                USER_GROUP_NAME=#{0}
+            )
+        </if>
+    </select>
+</mapper>

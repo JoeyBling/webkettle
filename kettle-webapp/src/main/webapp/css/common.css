@@ -1,0 +1,314 @@
+@charset "utf-8";
+
+/* CSS reset */
+body,input,textarea,div,a,table,tr,td,th{ font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;font-size: 12px; }
+body{color: #333;-webkit-text-size-adjust:none;}
+body,div,dl,dt,dd,ul,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin: 0; padding: 0;}
+table { border-collapse: collapse;border-spacing: 0; }
+fieldset,img { border: 0;}
+a { color: #333; text-decoration: none;}
+a:hover { color: #3eb2e6;}
+abbr,acrnym { border: 0;}
+input::-ms-clear{ display:none }    /*输入框的小叉叉图标消失*/
+*:focus { outline: none; }/* 去掉输入框点击时的边框 */
+
+.cke_editable{ padding:5px; height: 95%;}
+.cke_editable ul{
+	padding-left:40px;
+	margin:auto;
+	list-style:disc;
+}
+
+/*系统全局功能*/
+.textEllipsis {width: 99%;overflow: hidden;display: block;white-space: nowrap;text-overflow: ellipsis;}
+.clr {clear: both}
+.clearfloat {zoom: 1;}
+/*@清除浮动 */
+.clearfloat:after{display: block;content: "";clear: both;line-height: 0;visibility: hidden;}
+/*@置顶*/
+.com_goto{position: fixed;bottom: 80px;right: 20px; width: 50px;}
+.com_export{background: url(../images/export.png) no-repeat center;width: 48px;height: 48px;background-color: #fff;border: 1px solid #ccc!important;}
+.com_qrcode{ background: url(../images/qrcode.png) no-repeat center;width: 48px;height: 48px;background-color: #fff;border: 1px solid #ccc!important;}
+.com_qrcode:hover{ background-color: #dfdfdf;}
+.com_gototop {background:#6aafd9 url(../images/go_top.png);width: 50px;height: 50px;position: relative;bottom: 0;cursor: pointer;}
+.com_gototop:hover{ background:#c1c1c1 url(../images/go_top_on.png);width: 50px;height: 50px;}
+/*@展开||收起*/
+.com_slideDown {margin-left: 12px;padding-left: 10px;font-size: 13px;text-decoration: underline;background: url(../images/doc_arrow.png) no-repeat 0 5px;cursor: pointer;}
+.com_slideUp {margin-left: 12px;padding-left: 10px;font-size: 13px;text-decoration: underline;background: url(../images/doc_arrow.png) no-repeat 0px -23px;cursor: pointer;}
+
+/** tb_normal 一般4列表格表单的样式 有边框线表格 **/
+.tb_normal{background-color: #ffffff;border-collapse: collapse;border: 1px #d2d2d2 solid;padding: 8px !important;text-align: left; margin: 0 auto;}
+.tb_normal>tbody>.tr_normal_title{ background-color:#f6f6f6; text-align:center;}
+.tb_normal>tbody>tr{border-bottom: 1px solid #d2d2d2;border-top: 1px solid #d2d2d2;}
+.tb_normal>tbody>tr>td {padding: 8px; word-break:break-word; border-left: 1px #d2d2d2 solid; border-right: 1px #d2d2d2 solid; }
+.tb_normal>tbody>tr>.td_normal_title{ background-color:#f6f6f6;}
+.tb_normal .tr_normal_opt{/*background-color: rgba(100,100,100,0.8);*/background:url(../images/form/tr_normal_optBg.png) repeat left top;text-align: center;}
+.tb_normal .tr_normal_opt td{ padding: 5px 8px 2px;}
+.tb_normal .optStyle{display: inline-block;}
+.tb_normal .opt_add_style{background-image: url(../images/icon_add.png);width: 24px;height: 24px;}
+.tb_normal .opt_add_style:HOVER{background-image: url(../images/icon_add_hover.png);}
+.tb_normal .opt_add_compatible_style{background-image: url(../images/icon_add_compatible.png);width: 24px;height: 24px;}
+.tb_normal .opt_add_compatible_style:HOVER{background-image: url(../images/icon_add_compatible_hover.png);}
+.tb_normal .opt_copy_style{background-image: url(../images/icon_copy.png);width: 16px;height: 16px;}
+.tb_normal .opt_copy_style:HOVER{background-image: url(../images/icon_copy_hover.png);}
+.tb_normal .opt_del_style{background-image: url(../images/icon_del.png);width: 16px;height: 16px;}
+.tb_normal .opt_del_style:HOVER{background-image: url(../images/icon_del_hover.png);}
+.tb_normal .opt_up_style{background-image: url(../images/icon_up.png);width: 24px;height: 24px;}
+.tb_normal .opt_up_style:HOVER{background-image: url(../images/icon_up_hover.png);}
+.tb_normal .opt_down_style{background-image: url(../images/icon_down.png);width: 24px;height: 24px;}
+.tb_normal .opt_down_style:HOVER{background-image: url(../images/icon_down_hover.png);}
+.tb_normal input,.tb_normal label,.tb_normal select,.tb_normal option{ cursor: default;}
+/** tb_simple 一般2列表格表单的样式  无表框线表格 **/
+.tb_simple{border-collapse: collapse;background-color: #FFFFFF;margin: 0 auto; }
+.tb_simple>tbody>.tr_normal_title{ text-align:center;}
+.tb_simple>tbody>tr>td {padding: 5px; word-break:break-all;}
+.tb_simple>tbody>tr>.td_normal_title{ text-align:right}       /*字段名称*/
+
+/** tb_noborder 取消表格和单元格的边线 **/
+.tb_noborder{background-color: #FFFFFF;margin: 0 auto;border-collapse: collapse;padding: 0px; border:none;}
+.tb_noborder>tbody>tr>td {padding: 0px; border:none;}
+
+
+/*系统全局字体颜色*/
+.com_subject,.lui_form_subject,.txttitle {color: #3e9ece;}              /*标题颜色*/
+.com_subhead,.lui_form_subhead{color: #5b5b5b;}                         /*副标题颜色*/
+.td_normal_title, .tr_normal_title>td{color: #000;}                     /*字段颜色*/
+.com_author {color: #333;}                                           	/*人名强调色*/
+.com_author:hover {color: #F19703;} 
+.com_number {color:#29aa19}                                             /*数字强调色*/
+.com_warn,.txtstrong{ color:#d02300}                                    /*警告提示*/
+.com_help,.lui_form_baseinfo{ color:#9e9e9e}                            /*辅助信息*/
+.com_btn_link { color:#37ace1; text-decoration:underline;}              /*弱化按钮*/
+.com_prompt_more{vertical-align:text-top;display:inline-block;  /*更多提示*/
+	width:6px;height:6px;background-color:#fc4f4f;text-align:center; -moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;
+}
+.com_prompt_num{color: white;padding:2px 3px; font-size:10px; min-width:12px;height:12px;/*数字提示类*/
+	background-color:#d93e1a;vertical-align:super;line-height:12px;display: inline-block; text-align:center;
+	-moz-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;}						
+.com_btn_link_light{ text-decoration:underline;}
+.lui_popup_border_content .com_btn_link:hover { color:#db782c;}         /*弱化按钮*/
+.sys_notify_add{ color:#37ace1!important; text-decoration:underline; }  /* 日程提醒 */
+
+/*输入框提示信息字体颜色*/
+/* WebKit browsers */
+::-webkit-input-placeholder { color:#9e9e9e!important; font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun; font-size:12px;}
+/* Mozilla Firefox 4 to 18 */
+:-moz-placeholder { color:#9e9e9e!important; font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun; font-size:12px;}
+/* Mozilla Firefox 19+ */
+::-moz-placeholder { color:#9e9e9e!important; font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun; font-size:12px;}
+/* Internet Explorer 10+ */
+:-ms-input-placeholder { color:#9e9e9e!important; font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun; font-size:12px;}
+
+/*
+ 支持 IE 浏览器，需添加 -ms- 前缀 
+ 支持 Firefox 浏览器，需添加 -moz- 前缀 
+ 支持 Google Chrome 浏览器，需添加 -webkit- 前缀 
+ 支持 Safari 浏览器，需添加 -webkit- 前缀 
+ 支持 Opera 浏览器，需添加 -o- 前缀 
+ 支持 Opera 浏览器，需添加 -xv- 前缀 */
+/** 数据验证的样式 **/
+.validation-advice,.lui_validate{clear: both;margin: 5px 0;padding: 5px;background-color: #fff5d8;border: 1px solid #e0a385;}
+.lui_validate{cursor: pointer;}
+.validation-table{padding: 0px !important;margin: 0px !important;}
+.validation-table td {text-align:left;font-size: 12px;border: 0px; margin: 0px !important; padding: 0px 2px !important; line-height: 18px; vertical-align: middle;}
+.validation-table td:FIRST-CHILD{width: 18px !important;}
+.validation-advice-msg {font-weight: bold;}
+.validation-advice-msg .validation-advice-title{color: #cc0000 !important; font-weight: bolder;}
+
+/*按钮背景色*/
+.com_bgcolor_d{background-color:#47b5e6}
+.com_bgcolor_n{background-color:#47b5e6}
+.com_bgcolor_l{background-color:#d6d6d6}
+
+.com_bgcolor_d:hover{background-color:#2f9adb}
+.com_bgcolor_n:hover{background-color:#2f9adb}
+.com_bgcolor_l:hover{background-color:#c2c2c2}
+
+/*按钮边框色*/
+
+.com_bordercolor_d{border-color:#35a1d0}
+.com_bordercolor_n{border-color:#35a1d0}
+.com_bordercolor_l{border-color:#c7c7c7}
+
+/*按钮字体颜色*/
+.com_fontcolor_d{ color:#fff}
+.com_fontcolor_n{ color:#fff}
+.com_fontcolor_l{color:#fff}
+
+/*Ie8不支持 屏幕宽度小于等于1280*/
+  .width15 {width:15px;}
+  .width20 {width:20px;}
+  .width30 {width:30px;}
+  .width40 {width:40px;}
+  .width60 {width:60px;}
+  .width80 {width:80px;}
+  .width100 {width:100px;}
+  .width120 {width:120px;}
+  .width140 {width:140px;}
+  .width160 {width:160px;}
+  .width180 {width:180px;}
+  .width200 {width:200px;}
+  .width250 {width:250px;}
+
+/*屏幕宽度小于等于1280*/
+@media screen and (max-width: 1280px) {
+  .width15 {width:15px;}
+  .width20 {width:20px;}
+  .width30 {width:30px;}
+  .width40 {width:40px;}
+  .width60 {width:60px;}
+  .width80 {width:80px;}
+  .width100 {width:100px;}
+  .width120 {width:120px;}
+  .width140 {width:140px;}
+  .width160 {width:160px;}
+  .width180 {width:180px;}
+  .width200 {width:200px;}
+  .width250 {width:250px;}
+}
+
+/*屏幕宽度在1280和1536之间*/
+@media screen and (min-width: 1281px) and (max-width: 1537px) {
+  .width15 {width:19px;}
+  .width20 {width:25px;}
+  .width30 {width:38px;}
+  .width40 {width:50px;}
+  .width60 {width:75px;}
+  .width80 {width:100px;}
+  .width100 {width:125px;}
+  .width120 {width:150px;}
+  .width140 {width:175px;}
+  .width160 {width:200px;}
+  .width180 {width:225px;}
+  .width200 {width:250px;}
+  .width250 {width:315px;}
+}
+
+/*屏幕宽度在1536和1792之间*/
+@media screen and (min-width: 1537px) and (max-width: 1793px) {
+  .width15 {width:23px;}
+  .width20 {width:30px;}
+  .width30 {width:45px;}
+  .width40 {width:60px;}
+  .width60 {width:90px;}
+  .width80 {width:120px;}
+  .width100 {width:150px;}
+  .width120 {width:180px;}
+  .width140 {width:210px;}
+  .width160 {width:240px;}
+  .width180 {width:270px;}
+  .width200 {width:300px;}
+  .width250 {width:375px;}
+}
+
+/*屏幕宽度在1792和2048之间*/
+@media screen and (min-width: 1793px) and (max-width: 2049px) {
+  .width15 {width:15px;}
+  .width20 {width:35px;}
+  .width30 {width:53px;}
+  .width40 {width:70px;}
+  .width60 {width:105px;}
+  .width80 {width:140px;}
+  .width100 {width:175px;}
+  .width120 {width:210px;}
+  .width140 {width:245px;}
+  .width160 {width:280px;}
+  .width180 {width:315px;}
+  .width200 {width:350px;}
+  .width250 {width:465px;}
+}
+
+/*屏幕宽度大于等于2048*/
+@media screen and (min-width: 2049px) {
+  .width15 {width:30px;}
+  .width20 {width:40px;}
+  .width30 {width:60px;}
+  .width40 {width:80px;}
+  .width60 {width:120px;}
+  .width80 {width:160px;}
+  .width100 {width:200px;}
+  .width120 {width:240px;}
+  .width140 {width:280px;}
+  .width160 {width:320px;}
+  .width180 {width:360px;}
+  .width200 {width:400px;}
+  .width250 {width:500px;}
+}
+
+/*浏览器兼容提示*/
+.browserTip {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	background-color: yellow;
+	line-height: 20px;
+	text-align: center;
+	display: block;
+	height: 20px;
+}
+.browserTip div{
+	padding-left: 10px;
+	cursor: pointer;
+	display: inline;
+	padding-left: 5px;	
+	line-height: 20px;
+}
+
+/*右侧按钮 二维码和其他业务模块按钮加权重置 Starts*/
+.forum_shortcut_menu{
+  bottom: 179px!important;  
+}
+.forum_shortcut_menu ul li{
+  width: auto!important;
+  height: auto!important;
+  border: 0!important;
+  background: none!important;
+
+}
+.forum_shortcut_menu ul li a{
+  width: 48px!important;
+  height: 48px!important;
+  background-color: #fff!important;
+  border: 1px solid #ccc!important;
+  transition:all 0.3s;
+}
+.forum_shortcut_menu ul li a:hover{
+  background-color: #dfdfdf!important;
+}
+.forum_shortcut_menu ul li .menu1{ background-image: url(../images/toolbar/01-1.png)!important;}
+.forum_shortcut_menu ul li .menu2{ background-image: url(../images/toolbar/03-1.png)!important;}
+.forum_shortcut_menu ul li .menu3{ background-image: url(../images/toolbar/02-1.png)!important;}
+
+.work_comm_menu,
+.pindagate_menu{
+  bottom: 179px!important;
+  border-bottom: 0!important;
+}
+.work_comm_menu ul li,
+.pindagate_menu ul li{
+  margin-top: -1px;
+  width: 48px!important;
+  height: 48px!important;
+  transition:all 0.3s;
+  background-color: #fff!important;
+  border: 1px solid #ccc!important;
+}
+.work_comm_menu ul li:hover,
+.pindagate_menu ul li:hover{
+  background-color: #dfdfdf!important;
+}
+.work_comm_menu ul li.item_1{ background-image: url(../images/toolbar/06-1.png)!important;}
+.work_comm_menu ul li.item_2{ background-image: url(../images/toolbar/04-1.png)!important;}
+.work_comm_menu ul li.item_3{ background-image: url(../images/toolbar/15.png)!important;}
+.work_comm_menu ul li.item_4{ background-image: url(../images/toolbar/12-1.png)!important;}
+
+.pindagate_menu ul li.item_1{ background-image: url(../images/toolbar/vote_icon_1.png)!important;}
+.pindagate_menu ul li.item_2{ background-image: url(../images/toolbar/vote_icon_2.png)!important;}
+.pindagate_menu ul li.item_3{ background-image: url(../images/toolbar/vote_icon_3.png)!important;}
+.pindagate_menu ul li.item_4{ background-image: url(../images/toolbar/vote_icon_4.png)!important;}
+.pindagate_menu ul li.item_5{ background-image: url(../images/toolbar/vote_icon_5.png)!important;}
+
+
+/*右侧按钮 二维码和其他业务模块按钮加权重置 Ends*/

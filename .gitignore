@@ -1,0 +1,50 @@
+.target/
+bin/
+*.class
+*.iml
+.classpath
+.project
+.settings/
+.svn/
+.idea/
+
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+nbdist/
+.nb-gradle/
+# Compiled class file
+*.class
+
+# Log file #
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### GRADLE ###
+!gradle/wrapper/gradle-wrapper.jar
+.gradle
+/build/
+/gradlew
+/gradlew.bat
+target
+/Wedding-Rest/target
+/Wedding-Rest/target
+target
