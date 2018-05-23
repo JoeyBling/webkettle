@@ -15,33 +15,33 @@
 
 展示平台概况
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0608/145540_063bca4f_1097305.png "平台")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0608/145540_063bca4f_1097305.png)
 -  **模型设计**
 
 进行ETL模型设计调试
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0607/161330_3d1a33bc_1097305.png "模型设计")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0607/161330_3d1a33bc_1097305.png)
 -  **任务管理**
 
 对ETL任务进行综合的调度管理以及监控
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/142406_c1d1f25c_1097305.png "任务管理")
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/114021_0c347905_1097305.png "任务管理")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/142406_c1d1f25c_1097305.png)
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/114021_0c347905_1097305.png)
 -  **日志**
 
 ETL任务的执行日志模块
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/114003_eb22068b_1097305.png "日志")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/114003_eb22068b_1097305.png)
 -  **节点管理**
 
 ETL任务的执行引擎节点管理
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/113944_7213e6c1_1097305.png "节点管理")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/113944_7213e6c1_1097305.png)
 -  **定时调度**
 
 定时ETL任务管理
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/144118_a5e252e8_1097305.png "定时调度")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/144118_a5e252e8_1097305.png)
 -  **用户管理**
 
 精卫平台的用户权限管理系统
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/141826_599b8f09_1097305.png "用户管理")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/141826_599b8f09_1097305.png)
 
 #  webKettleETL技术实现
 ------------------------- 
@@ -57,8 +57,8 @@ ETL任务的执行引擎节点管理
 
 # webKettleETL整体功能流程
 --------------------------
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110741_c24e49f7_1097305.png "功能流程")
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0825/094017_0fbeada5_1097305.png "功能流程")
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110741_c24e49f7_1097305.png)
+![输入图片说明](https://git.oschina.net/uploads/images/2017/0825/094017_0fbeada5_1097305.png)
 # 技术选型
 --------------------------
 
@@ -79,7 +79,6 @@ ETL任务的执行引擎节点管理
 4. 本例使用Maven3.2.3构建，启动服务器后访问http://localhost:8080/
 5. 支持IE9及以上、FireFox等浏览器，IE6-IE8需要做特殊化处理，其他浏览器未测试
 6. jdk版本需要1.8以上
-7. 感谢wind1373290大神提供webkettle原版代码和技术支持,希望能借社区的力量把该项目发扬光大
 
 
 
