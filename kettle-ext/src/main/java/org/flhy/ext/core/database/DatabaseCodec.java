@@ -1,9 +1,6 @@
 package org.flhy.ext.core.database;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 import org.flhy.ext.utils.JSONArray;
 import org.flhy.ext.utils.JSONObject;
@@ -146,6 +143,10 @@ public class DatabaseCodec {
 		databaseMeta.setName(jsonObject.optString("name"));
 		databaseMeta.setDisplayName(databaseMeta.getName());
 		databaseMeta.setDatabaseType(jsonObject.optString("type"));
+		//如果未选择连接方式会报错
+		if(jsonObject.get("access") instanceof List) {
+			throw new RuntimeException("请选择连接方式");
+		}
 		databaseMeta.setAccessType(jsonObject.optInt("access"));
 		
 		if(jsonObject.containsKey("hostname"))

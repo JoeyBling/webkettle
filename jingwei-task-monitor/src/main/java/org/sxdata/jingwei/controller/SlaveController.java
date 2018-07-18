@@ -15,6 +15,7 @@ import org.sxdata.jingwei.entity.UserGroupEntity;
 import org.sxdata.jingwei.service.SlaveService;
 import org.sxdata.jingwei.service.UserGroupService;
 import org.sxdata.jingwei.util.TaskUtil.KettleEncr;
+import org.sxdata.jingwei.util.quartzUtil.SlaveQuota;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

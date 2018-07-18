@@ -130,8 +130,8 @@ public class CarteClient implements ApplicationContextAware {
 	暂停某个转换
 	 */
     public String pauseTrans(String transId) throws Exception {
-        if (SlaveServerTransStatus.fromXML(getTransStatus(transId)).isRunning() || SlaveServerTransStatus.fromXML(getTransStatus(transId)).isPaused()) {
-            String urlString = httpUrl + PAUSE_TRANS + "/?" + "xml=Y&id=" + transId;
+                if (SlaveServerTransStatus.fromXML(getTransStatus(transId)).isRunning() || SlaveServerTransStatus.fromXML(getTransStatus(transId)).isPaused()) {
+                    String urlString = httpUrl + PAUSE_TRANS + "/?" + "xml=Y&id=" + transId;
             return doGet(urlString);
         } else {
             return "the trans is not running.";

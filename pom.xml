@@ -11,6 +11,11 @@
         <module>jingwei-task-monitor</module>
     </modules>
 
+    <properties>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -32,10 +37,11 @@
             <artifactId>trilead-ssh2</artifactId>
             <version>1.0.0-build220</version>
         </dependency>
+
         <dependency>
-            <groupId>org.ftp4che</groupId>
+            <groupId>com.gitee.zhousiwei</groupId>
             <artifactId>ftp4che</artifactId>
-            <version>0.7.1</version>
+            <version>6.6</version>
         </dependency>
 
         <!--kettle dependency start-->
@@ -139,7 +145,7 @@
             <groupId>simple-jndi</groupId>
             <artifactId>simple-jndi</artifactId>
             <version>0.11.3</version>
-            <scope>test</scope>
+            <!--<scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>org.owasp.esapi</groupId>
@@ -229,8 +235,8 @@
         </dependency>
         <dependency>
             <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.4.0</version>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.3</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -309,9 +315,9 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
+                    <encoding>${maven.compiler.encoding}</encoding>
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
@@ -333,10 +339,6 @@
             </properties>
         </profile>
     </profiles>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <repositories>
         <repository>

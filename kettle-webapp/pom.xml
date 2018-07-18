@@ -18,7 +18,6 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>7.2.0.RC0</version>
 				<configuration>
-					<encoding>UTF-8</encoding>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<stopKey>kw8088</stopKey>  
         			<stopPort>9999</stopPort>  

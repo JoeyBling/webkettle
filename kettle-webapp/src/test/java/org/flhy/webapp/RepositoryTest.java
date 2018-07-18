@@ -15,7 +15,7 @@ import org.pentaho.di.repository.kdr.KettleDatabaseRepositoryMeta;
 
 public class RepositoryTest {
 
-	@Before
+	//@Before
 	public void getDatabaseRepository() throws KettleException {
 		KettleEnvironment.init();
 		PropsUI.init( "KettleWebConsole", Props.TYPE_PROPERTIES_KITCHEN );
@@ -45,7 +45,7 @@ public class RepositoryTest {
 		App.getInstance().selectRepository(repository);
 	}
 	
-	@Test
+	//@Test
 	public void getRootNode() throws KettleException {
 		Repository repository = App.getInstance().getRepository();
 		RepositoryDirectoryInterface path = repository.findDirectory("");

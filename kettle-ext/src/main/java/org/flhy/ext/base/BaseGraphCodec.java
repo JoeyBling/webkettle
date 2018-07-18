@@ -312,7 +312,9 @@ public abstract class BaseGraphCodec implements GraphCodec {
 		JSONArray jsonArray = JSONArray.fromObject(root.getAttribute("slaveServers"));
 		for (int i = 0; i < jsonArray.size(); i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
+			System.err.println(jsonObject);
 			SlaveServer slaveServer = SlaveServerCodec.decode(jsonObject);
+			System.err.println(slaveServer);
 			slaveServer.shareVariablesWith(meta);
 
 			SlaveServer check = meta.findSlaveServer(slaveServer.getName());
