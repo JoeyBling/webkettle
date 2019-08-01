@@ -1,4 +1,9 @@
 
+![star](https://img.shields.io/github/stars/JoeyBling/webkettle "star")
+![fork](https://img.shields.io/github/forks/JoeyBling/webkettle "fork")
+[![webkettle交流群](https://img.shields.io/badge/QQ群-487063343-red.svg "webkettle交流群")](https://jq.qq.com/?_wv=1027&k=55kiWBY "webkettle交流群")
+
+> 同时也欢迎相同爱好者加入一起维护此项目
 
 #  webKettleETL产品介绍
 -------------------------    
