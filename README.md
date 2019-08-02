@@ -2,12 +2,12 @@
 ![star](https://img.shields.io/github/stars/JoeyBling/webkettle "star")
 ![fork](https://img.shields.io/github/forks/JoeyBling/webkettle "fork")
 [![webkettle交流群](https://img.shields.io/badge/QQ群-487063343-red.svg "webkettle交流群")](https://jq.qq.com/?_wv=1027&k=55kiWBY "webkettle交流群")
+[![LICENSE](https://img.shields.io/github/license/JoeyBling/webkettle "LICENSE")](./LICENSE "LICENSE")
 
-> 同时也欢迎相同爱好者加入一起维护此项目
+> **欢迎相同爱好者加入一起维护此项目**
 
 #  webKettleETL产品介绍
--------------------------    
-   
+-------------------------
 
 -  webkettle平台，创造性的将平台构建为B/S架构的ETL模型设计以及集成用户专业调度管理的分布式ETL建模运维系统。
 -  系统分为七大模块:模型、平台、任务、定时调度、日志、节点、用户.
@@ -16,40 +16,38 @@
 
 # 模块展示
 --------------------------
--  **平台** 
+- **平台**（展示平台概况）
 
-展示平台概况
+![](./images/平台概况_mini.png "平台概况")
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0608/145540_063bca4f_1097305.png "在这里输入图片标题")
--  **模型设计**
+- **模型设计**（进行ETL模型设计调试）
 
-进行ETL模型设计调试
+![](./images/ETL模型设计调试_mini.png "ETL模型设计调试")
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0607/161330_3d1a33bc_1097305.png "在这里输入图片标题")
--  **任务管理**
+- **任务管理**（对ETL任务进行综合的调度管理以及监控）
 
-对ETL任务进行综合的调度管理以及监控
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/142406_c1d1f25c_1097305.png "在这里输入图片标题")
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/114021_0c347905_1097305.png "在这里输入图片标题")
--  **日志**
+![](./images/作业管理_mini.png "作业管理")
 
-ETL任务的执行日志模块
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/114003_eb22068b_1097305.png "在这里输入图片标题")
--  **节点管理**
+![](./images/任务监控_mini.png "任务监控")
 
-ETL任务的执行引擎节点管理
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/113944_7213e6c1_1097305.png "在这里输入图片标题")
--  **定时调度**
+- **日志**（ETL任务的执行日志模块）
 
-定时ETL任务管理
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/144118_a5e252e8_1097305.png "在这里输入图片标题")
--  **用户管理**
+![](./images/ETL任务的执行日志模块_mini.png "ETL任务的执行日志模块")
 
-平台的用户权限管理系统
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/141826_599b8f09_1097305.png "在这里输入图片标题")
+-  **节点管理**（ETL任务的执行引擎节点管理）
+
+![](./images/节点管理_mini.png "节点管理")
+
+-  **定时调度**（定时ETL任务管理）
+
+![](./images/定时调度_mini.png "定时调度")
+
+-  **用户管理**（平台的用户权限管理系统）
+
+![](./images/用户管理_mini.png "用户管理")
 
 #  webKettleETL技术实现
-------------------------- 
+-------------------------
 - ETL是基于流行的ETL工具kettle开发的B/S架构版本的ETL产品,所使用的底层引擎是调用kettle的api
 - ETL任务以元数据的方式储存在资源库里面,通过读取资源库元数据,对元数据进行解析后可将ETL任务通过MXGraph展现至B/S架构的系统中,实现了在B/S架构上面开发ETL任务的功能,属于系统的模型开发模块功能.
 - 通过对元数据的操作可以对ETL任务进行综合性的管理以及监控,通过Quartz定时框架可以实现对任务的定时调度
@@ -57,36 +55,41 @@ ETL任务的执行引擎节点管理
 - 基于高度自由化的B/S框架,可以嵌入多元化的需求,于是我们在中添加了用户管理模块,通过用户权限的概念对所有的ETL任务进行人性化的运维管理
 - 整个项目使用Maven进行构建管理,多模块之间低耦合,高拓展性
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110502_61484bf4_1097305.png "在这里输入图片标题")
+![](./images/webKettleETL技术实现_mini.png "webKettleETL技术实现")
 
 
 # webKettleETL整体功能流程
 --------------------------
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0613/110741_c24e49f7_1097305.png "在这里输入图片标题")
-![输入图片说明](https://git.oschina.net/uploads/images/2017/0825/094017_0fbeada5_1097305.png "屏幕截图.png")
-#技术选型
+![](./images/功能流程_mini.png "功能流程")
+![](./images/开发里程碑_mini.png "开发里程碑")
+
+# 技术选型
 --------------------------
 
-- 核心框架：Spring Framework 
-- 任务调度：Spring + Quartz
-- 持久层框架：MyBatis 
-- 会话管理：Spring-Session 
-- 日志管理：Log4j
-- 前端框架：EXTJS3.4+MXGraph2.3
-- 项目管理: Maven3.2.3
-- ETL底层引擎:kettle7.0
+- 核心框架：```Spring Framework```
+- 任务调度：```Spring + Quartz```
+- 持久层框架：```MyBatis```
+- 会话管理：```Spring-Session```
+- 日志管理：```Log4j```
+- 前端框架：```EXTJS3.4+MXGraph2.3```
+- 项目管理: ```Maven3.2.3```
+- ETL底层引擎:```kettle7.0```
+
+# 项目结构
+> 项目结构图
+
+![](./images/项目结构_mini.png "项目结构")
 
 # 说明
 --------------------------
-1. 本系统采用单资源库模式，数据源连接在dispatch-servlet.xml中配置，系统启动后就会读取该资源库
-2. 数据库脚本都在kettle-scheduler项目的scripts目录下
+1. 本系统采用单资源库模式，数据源连接在```dispatch-servlet.xml```中配置，系统启动后就会读取该资源库
+2. **数据库脚本在项目的sql目录下**
 3. 数据库暂时只支持MySQL，本系统在MySQL5.5.20版本上测试，其他版本尚未测试
 4. 本例使用Maven3.2.3构建，启动服务器后访问http://localhost:8080/
-5. 支持IE9及以上、FireFox等浏览器，IE6-IE8需要做特殊化处理，其他浏览器未测试
-6. jdk版本需要1.8以上
-7. 感谢wind1373290大神提供webkettle原版代码和技术支持,希望能借社区的力量把该项目发扬光大
-
+5. 支持`IE9`及以上、`FireFox`等浏览器，IE6-IE8需要做特殊化处理，其他浏览器未测试
+6. jdk版本需要```1.8```以上
+7. 管理员账号密码：```admin/admin```
 
 
 # 许可证
-    Apache2
+[![LICENSE](https://img.shields.io/github/license/JoeyBling/webkettle "LICENSE")](./LICENSE "LICENSE")

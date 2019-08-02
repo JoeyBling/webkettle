@@ -8,7 +8,6 @@ bin/
 .svn/
 .idea/
 
-
 ### NetBeans ###
 nbproject/private/
 build/
