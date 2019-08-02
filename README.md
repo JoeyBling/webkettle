@@ -55,7 +55,7 @@
 - 基于高度自由化的B/S框架,可以嵌入多元化的需求,于是我们在中添加了用户管理模块,通过用户权限的概念对所有的ETL任务进行人性化的运维管理
 - 整个项目使用Maven进行构建管理,多模块之间低耦合,高拓展性
 
-![](./images/webKettleETL技术实现_mini.png "webKettleETL技术实现")
+![](./images/技术实现_mini.png "webKettleETL技术实现")
 
 
 # webKettleETL整体功能流程
