@@ -1,7 +1,5 @@
 package org.flhy.webapp.job.entries.sftp;
 
-import java.net.InetAddress;
-
 import org.flhy.ext.PluginFactory;
 import org.flhy.ext.base.GraphCodec;
 import org.flhy.ext.utils.JsonUtils;
@@ -16,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.net.InetAddress;
 
 @Controller
 @RequestMapping(value="/sftp")

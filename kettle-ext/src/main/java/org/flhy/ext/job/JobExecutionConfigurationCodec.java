@@ -1,15 +1,5 @@
 package org.flhy.ext.job;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.flhy.ext.cluster.SlaveServerCodec;
 import org.flhy.ext.utils.JSONArray;
 import org.flhy.ext.utils.JSONObject;
 import org.pentaho.di.base.AbstractMeta;
@@ -19,6 +9,10 @@ import org.pentaho.di.core.xml.XMLHandler;
 import org.pentaho.di.job.JobExecutionConfiguration;
 import org.springframework.util.StringUtils;
 import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.util.*;
 
 public class JobExecutionConfigurationCodec {
 

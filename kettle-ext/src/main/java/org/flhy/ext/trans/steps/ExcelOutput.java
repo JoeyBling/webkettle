@@ -9,19 +9,15 @@ import org.flhy.ext.utils.JSONObject;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.core.encryption.Encr;
-import org.pentaho.di.core.row.value.ValueMetaFactory;
-import org.pentaho.di.i18n.BaseMessages;
 import org.pentaho.di.trans.step.StepMetaInterface;
 import org.pentaho.di.trans.steps.exceloutput.ExcelField;
 import org.pentaho.di.trans.steps.exceloutput.ExcelOutputMeta;
-import org.pentaho.di.ui.trans.steps.exceloutput.ExcelOutputDialog;
 import org.pentaho.metastore.api.IMetaStore;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import java.nio.charset.Charset;
 import java.util.List;
 
 /**

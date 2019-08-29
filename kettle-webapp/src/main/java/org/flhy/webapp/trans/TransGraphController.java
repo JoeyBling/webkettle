@@ -1,24 +1,6 @@
 package org.flhy.webapp.trans;
 
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Toolkit;
-import java.awt.color.ColorSpace;
-import java.io.PrintWriter;
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-
-import javax.print.attribute.IntegerSyntax;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.mchange.v2.c3p0.stmt.GooGooStatementCache;
-import net.sf.json.JSON;
+import com.mxgraph.util.mxUtils;
 import org.flhy.ext.App;
 import org.flhy.ext.PluginFactory;
 import org.flhy.ext.TransDebugExecutor;
@@ -34,13 +16,7 @@ import org.flhy.webapp.utils.GetSQLProgress;
 import org.flhy.webapp.utils.SearchFieldsProgress;
 import org.flhy.webapp.utils.TransPreviewProgress;
 import org.pentaho.di.base.AbstractMeta;
-import org.pentaho.di.cluster.SlaveServer;
-import org.pentaho.di.core.CheckResultInterface;
-import org.pentaho.di.core.CheckResultSourceInterface;
-import org.pentaho.di.core.Condition;
-import org.pentaho.di.core.Const;
-import org.pentaho.di.core.RowMetaAndData;
-import org.pentaho.di.core.SQLStatement;
+import org.pentaho.di.core.*;
 import org.pentaho.di.core.database.Database;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.core.logging.DefaultLogLevel;
@@ -57,7 +33,6 @@ import org.pentaho.di.core.xml.XMLHandler;
 import org.pentaho.di.repository.ObjectId;
 import org.pentaho.di.repository.Repository;
 import org.pentaho.di.repository.RepositorySecurityProvider;
-import org.pentaho.di.repository.kdr.KettleDatabaseRepository;
 import org.pentaho.di.trans.TransExecutionConfiguration;
 import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.TransPreviewFactory;
@@ -65,17 +40,21 @@ import org.pentaho.di.trans.debug.StepDebugMeta;
 import org.pentaho.di.trans.debug.TransDebugMeta;
 import org.pentaho.di.trans.step.StepMeta;
 import org.pentaho.di.trans.step.StepMetaInterface;
-import org.springframework.beans.factory.parsing.QualifierEntry;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.sxdata.jingwei.util.TaskUtil.KettleEncr;
 import org.w3c.dom.Element;
 
-import com.mxgraph.util.mxUtils;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.io.PrintWriter;
+import java.net.URLDecoder;
+import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/trans")

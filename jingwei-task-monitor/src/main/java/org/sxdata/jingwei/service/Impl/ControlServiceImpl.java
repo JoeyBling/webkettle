@@ -1,20 +1,16 @@
 package org.sxdata.jingwei.service.Impl;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import org.flhy.ext.JobExecutor;
 import org.flhy.ext.TransExecutor;
-import org.flhy.ext.trans.TransMetaCodec;
 import org.pentaho.di.cluster.SlaveServer;
-import org.pentaho.di.core.Result;
-import org.pentaho.di.job.Job;
 import org.pentaho.di.job.JobExecutionConfiguration;
-import org.pentaho.di.job.JobMeta;
 import org.pentaho.di.trans.Trans;
 import org.pentaho.di.trans.TransExecutionConfiguration;
-import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.step.StepStatus;
-import org.pentaho.di.www.*;
+import org.pentaho.di.www.SlaveServerJobStatus;
+import org.pentaho.di.www.SlaveServerStatus;
+import org.pentaho.di.www.SlaveServerTransStatus;
+import org.pentaho.di.www.StopTransServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.sxdata.jingwei.dao.SlaveDao;
@@ -27,7 +23,10 @@ import org.sxdata.jingwei.service.ControlService;
 import org.sxdata.jingwei.util.TaskUtil.CarteClient;
 import org.sxdata.jingwei.util.TaskUtil.KettleEncr;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.List;
 
 /**
  * Created by cRAZY on 2017/3/10.

@@ -1,12 +1,5 @@
 package org.flhy.ext.cluster;
 
-import java.io.IOException;
-import java.io.StringReader;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.flhy.ext.utils.JSONObject;
 import org.pentaho.di.cluster.SlaveServer;
 import org.pentaho.di.core.xml.XMLHandler;
@@ -15,6 +8,12 @@ import org.springframework.util.StringUtils;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.io.StringReader;
 
 public class SlaveServerCodec {
 

@@ -10,9 +10,9 @@ import org.sxdata.jingwei.entity.TaskGroupEntity;
 import org.sxdata.jingwei.entity.UserGroupAttributeEntity;
 import org.sxdata.jingwei.service.TaskGroupService;
 import org.sxdata.jingwei.util.CommonUtil.StringDateUtil;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;

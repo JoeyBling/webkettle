@@ -13,7 +13,6 @@ import org.sxdata.jingwei.service.SlaveService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
-import java.util.Date;
 
 /**
  * Created by cRAZY on 2017/6/5.

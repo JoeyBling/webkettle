@@ -5,7 +5,6 @@ import net.sf.json.JSONObject;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.row.value.ValueMetaFactory;
 import org.pentaho.di.trans.steps.exceloutput.ExcelOutputMeta;
-import org.pentaho.di.ui.trans.steps.exceloutput.ExcelOutputDialog;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

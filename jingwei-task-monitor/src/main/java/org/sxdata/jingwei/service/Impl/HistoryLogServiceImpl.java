@@ -9,7 +9,6 @@ import org.sxdata.jingwei.bean.PageforBean;
 import org.sxdata.jingwei.dao.ExecutionTraceDao;
 import org.sxdata.jingwei.dao.TaskGroupDao;
 import org.sxdata.jingwei.entity.TaskGroupAttributeEntity;
-import org.sxdata.jingwei.entity.TaskGroupEntity;
 import org.sxdata.jingwei.service.HistoryLogService;
 import org.sxdata.jingwei.util.CommonUtil.StringDateUtil;
 

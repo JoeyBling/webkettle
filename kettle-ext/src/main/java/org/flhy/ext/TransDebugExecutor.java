@@ -1,24 +1,11 @@
 package org.flhy.ext;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-
 import org.flhy.ext.utils.JSONArray;
 import org.flhy.ext.utils.JSONObject;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.exception.KettleException;
 import org.pentaho.di.core.exception.KettleStepException;
-import org.pentaho.di.core.logging.KettleLogLayout;
-import org.pentaho.di.core.logging.KettleLogStore;
-import org.pentaho.di.core.logging.KettleLoggingEvent;
-import org.pentaho.di.core.logging.LogMessage;
-import org.pentaho.di.core.logging.LoggingRegistry;
+import org.pentaho.di.core.logging.*;
 import org.pentaho.di.core.row.RowMetaInterface;
 import org.pentaho.di.core.row.ValueMetaInterface;
 import org.pentaho.di.trans.Trans;
@@ -28,12 +15,10 @@ import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.debug.BreakPointListener;
 import org.pentaho.di.trans.debug.StepDebugMeta;
 import org.pentaho.di.trans.debug.TransDebugMeta;
-import org.pentaho.di.trans.step.RowAdapter;
-import org.pentaho.di.trans.step.StepInterface;
-import org.pentaho.di.trans.step.StepMeta;
-import org.pentaho.di.trans.step.StepMetaDataCombi;
-import org.pentaho.di.trans.step.StepStatus;
+import org.pentaho.di.trans.step.*;
 import org.springframework.util.StringUtils;
+
+import java.util.*;
 
 public class TransDebugExecutor implements Runnable {
 

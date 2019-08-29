@@ -1,7 +1,10 @@
 package org.sxdata.jingwei.dao;
 
 import org.springframework.stereotype.Repository;
-import org.sxdata.jingwei.entity.*;
+import org.sxdata.jingwei.entity.SlaveUserRelationEntity;
+import org.sxdata.jingwei.entity.TaskUserRelationEntity;
+import org.sxdata.jingwei.entity.UserGroupAttributeEntity;
+import org.sxdata.jingwei.entity.UserGroupEntity;
 
 import java.util.List;
 

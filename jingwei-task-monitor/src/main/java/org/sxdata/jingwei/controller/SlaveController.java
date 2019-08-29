@@ -8,14 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.sxdata.jingwei.bean.PageforBean;
-import org.sxdata.jingwei.dao.UserGroupDao;
 import org.sxdata.jingwei.entity.SlaveEntity;
 import org.sxdata.jingwei.entity.UserGroupAttributeEntity;
-import org.sxdata.jingwei.entity.UserGroupEntity;
 import org.sxdata.jingwei.service.SlaveService;
-import org.sxdata.jingwei.service.UserGroupService;
 import org.sxdata.jingwei.util.TaskUtil.KettleEncr;
-import org.sxdata.jingwei.util.quartzUtil.SlaveQuota;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

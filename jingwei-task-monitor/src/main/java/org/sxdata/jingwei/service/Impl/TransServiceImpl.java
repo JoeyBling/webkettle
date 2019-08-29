@@ -8,15 +8,14 @@ import org.pentaho.di.repository.Repository;
 import org.pentaho.di.repository.RepositoryDirectoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.sxdata.jingwei.bean.PageforBean;
 import org.sxdata.jingwei.dao.*;
 import org.sxdata.jingwei.entity.*;
 import org.sxdata.jingwei.service.TransService;
+import org.sxdata.jingwei.util.CommonUtil.StringDateUtil;
 import org.sxdata.jingwei.util.TaskUtil.CarteClient;
 import org.sxdata.jingwei.util.TaskUtil.CarteTaskManager;
 import org.sxdata.jingwei.util.TaskUtil.KettleEncr;
-import org.sxdata.jingwei.util.CommonUtil.StringDateUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

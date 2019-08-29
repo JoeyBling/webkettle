@@ -1,7 +1,6 @@
 package org.sxdata.jingwei.service;
 
 import org.sxdata.jingwei.entity.DatabaseConnEntity;
-import org.sxdata.jingwei.entity.SlaveEntity;
 
 import java.util.List;
 

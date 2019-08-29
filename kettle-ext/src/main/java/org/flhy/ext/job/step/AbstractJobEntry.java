@@ -1,7 +1,6 @@
 package org.flhy.ext.job.step;
 
-import java.util.List;
-
+import com.mxgraph.model.mxCell;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.core.plugins.JobEntryPluginType;
@@ -12,7 +11,7 @@ import org.pentaho.di.job.entry.JobEntryInterface;
 import org.pentaho.metastore.api.IMetaStore;
 import org.w3c.dom.Element;
 
-import com.mxgraph.model.mxCell;
+import java.util.List;
 
 public abstract class AbstractJobEntry implements JobEntryEncoder, JobEntryDecoder {
 

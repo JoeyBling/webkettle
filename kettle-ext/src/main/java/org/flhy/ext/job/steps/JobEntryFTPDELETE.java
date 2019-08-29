@@ -1,12 +1,11 @@
 package org.flhy.ext.job.steps;
 
-import java.util.List;
-
+import com.mxgraph.model.mxCell;
+import com.mxgraph.util.mxUtils;
 import org.flhy.ext.core.PropsUI;
 import org.flhy.ext.job.step.AbstractJobEntry;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.database.DatabaseMeta;
-import org.pentaho.di.core.encryption.Encr;
 import org.pentaho.di.job.entries.ftpdelete.JobEntryFTPDelete;
 import org.pentaho.di.job.entry.JobEntryInterface;
 import org.pentaho.metastore.api.IMetaStore;
@@ -15,8 +14,7 @@ import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.mxgraph.model.mxCell;
-import com.mxgraph.util.mxUtils;
+import java.util.List;
 
 @Component("FTP_DELETE")
 @Scope("prototype")

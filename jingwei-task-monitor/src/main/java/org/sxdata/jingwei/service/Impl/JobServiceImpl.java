@@ -23,15 +23,14 @@ import org.sxdata.jingwei.bean.PageforBean;
 import org.sxdata.jingwei.dao.*;
 import org.sxdata.jingwei.entity.*;
 import org.sxdata.jingwei.service.JobService;
+import org.sxdata.jingwei.util.CommonUtil.StringDateUtil;
 import org.sxdata.jingwei.util.TaskUtil.CarteClient;
 import org.sxdata.jingwei.util.TaskUtil.CarteTaskManager;
 import org.sxdata.jingwei.util.TaskUtil.KettleEncr;
-import org.sxdata.jingwei.util.CommonUtil.StringDateUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

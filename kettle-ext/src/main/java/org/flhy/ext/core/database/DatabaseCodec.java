@@ -1,20 +1,15 @@
 package org.flhy.ext.core.database;
 
-import java.util.*;
-
 import org.flhy.ext.utils.JSONArray;
 import org.flhy.ext.utils.JSONObject;
 import org.flhy.ext.utils.StringEscapeHelper;
-import org.pentaho.di.core.database.BaseDatabaseMeta;
-import org.pentaho.di.core.database.DatabaseConnectionPoolParameter;
-import org.pentaho.di.core.database.DatabaseMeta;
-import org.pentaho.di.core.database.GenericDatabaseMeta;
-import org.pentaho.di.core.database.MSSQLServerNativeDatabaseMeta;
-import org.pentaho.di.core.database.PartitionDatabaseMeta;
+import org.pentaho.di.core.database.*;
 import org.pentaho.di.core.database.sap.SAPR3DatabaseMeta;
 import org.pentaho.di.core.encryption.Encr;
 import org.pentaho.di.core.exception.KettleDatabaseException;
 import org.springframework.util.StringUtils;
+
+import java.util.*;
 
 public class DatabaseCodec {
 	

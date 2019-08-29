@@ -18,33 +18,33 @@
 --------------------------
 - **平台**（展示平台概况）
 
-![](./images/平台概况_mini.png "平台概况")
+![](./examples/images/平台概况_mini.png "平台概况")
 
 - **模型设计**（进行ETL模型设计调试）
 
-![](./images/ETL模型设计调试_mini.png "ETL模型设计调试")
+![](./examples/images/ETL模型设计调试_mini.png "ETL模型设计调试")
 
 - **任务管理**（对ETL任务进行综合的调度管理以及监控）
 
-![](./images/作业管理_mini.png "作业管理")
+![](./examples/images/作业管理_mini.png "作业管理")
 
-![](./images/任务监控_mini.png "任务监控")
+![](./examples/images/任务监控_mini.png "任务监控")
 
 - **日志**（ETL任务的执行日志模块）
 
-![](./images/ETL任务的执行日志模块_mini.png "ETL任务的执行日志模块")
+![](./examples/images/ETL任务的执行日志模块_mini.png "ETL任务的执行日志模块")
 
 -  **节点管理**（ETL任务的执行引擎节点管理）
 
-![](./images/节点管理_mini.png "节点管理")
+![](./examples/images/节点管理_mini.png "节点管理")
 
 -  **定时调度**（定时ETL任务管理）
 
-![](./images/定时调度_mini.png "定时调度")
+![](./examples/images/定时调度_mini.png "定时调度")
 
 -  **用户管理**（平台的用户权限管理系统）
 
-![](./images/用户管理_mini.png "用户管理")
+![](./examples/images/用户管理_mini.png "用户管理")
 
 #  webKettleETL技术实现
 -------------------------
@@ -55,13 +55,13 @@
 - 基于高度自由化的B/S框架,可以嵌入多元化的需求,于是我们在中添加了用户管理模块,通过用户权限的概念对所有的ETL任务进行人性化的运维管理
 - 整个项目使用Maven进行构建管理,多模块之间低耦合,高拓展性
 
-![](./images/技术实现_mini.png "webKettleETL技术实现")
+![](./examples/images/技术实现_mini.png "webKettleETL技术实现")
 
 
 # webKettleETL整体功能流程
 --------------------------
-![](./images/功能流程_mini.png "功能流程")
-![](./images/开发里程碑_mini.png "开发里程碑")
+![](./examples/images/功能流程_mini.png "功能流程")
+![](./examples/images/开发里程碑_mini.png "开发里程碑")
 
 # 技术选型
 --------------------------
@@ -78,10 +78,13 @@
 # 项目结构
 > 项目结构图
 
-![](./images/项目结构_mini.png "项目结构")
+![](./examples/images/项目结构_mini.png "项目结构")
 
-# 说明
+# 启动说明
 --------------------------
+
+> **附加说明：启动Tomcat或其他服务器时，请设置路径为 /**
+
 1. 本系统采用单资源库模式，数据源连接在```dispatch-servlet.xml```中配置，系统启动后就会读取该资源库
 2. **数据库脚本在项目的sql目录下**
 3. 数据库暂时只支持MySQL，本系统在MySQL5.5.20版本上测试，其他版本尚未测试
@@ -89,7 +92,6 @@
 5. 支持`IE9`及以上、`FireFox`等浏览器，IE6-IE8需要做特殊化处理，其他浏览器未测试
 6. jdk版本需要```1.8```以上
 7. 管理员账号密码：```admin/admin```
-
 
 # 许可证
 [![LICENSE](https://img.shields.io/github/license/JoeyBling/webkettle "LICENSE")](./LICENSE "LICENSE")

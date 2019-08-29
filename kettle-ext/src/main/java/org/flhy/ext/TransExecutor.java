@@ -1,16 +1,9 @@
 package org.flhy.ext;
 
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import com.mxgraph.util.mxUtils;
-import net.sf.json.JsonConfig;
-import net.sf.json.util.CycleDetectionStrategy;
 import org.apache.ibatis.session.SqlSession;
 import org.flhy.ext.Task.ExecutionTraceEntity;
 import org.flhy.ext.Task.MybatisDaoSuppo;
-import org.flhy.ext.trans.steps.SystemInfo;
 import org.flhy.ext.utils.ExceptionUtils;
 import org.flhy.ext.utils.JSONArray;
 import org.flhy.ext.utils.JSONObject;
@@ -19,11 +12,7 @@ import org.pentaho.di.core.Const;
 import org.pentaho.di.core.Result;
 import org.pentaho.di.core.exception.KettleException;
 import org.pentaho.di.core.exception.KettleStepException;
-import org.pentaho.di.core.logging.KettleLogLayout;
-import org.pentaho.di.core.logging.KettleLogStore;
-import org.pentaho.di.core.logging.KettleLoggingEvent;
-import org.pentaho.di.core.logging.LogMessage;
-import org.pentaho.di.core.logging.LoggingRegistry;
+import org.pentaho.di.core.logging.*;
 import org.pentaho.di.core.row.RowMetaInterface;
 import org.pentaho.di.core.row.ValueMetaInterface;
 import org.pentaho.di.trans.Trans;
@@ -31,17 +20,15 @@ import org.pentaho.di.trans.TransAdapter;
 import org.pentaho.di.trans.TransExecutionConfiguration;
 import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.cluster.TransSplitter;
-import org.pentaho.di.trans.step.RowAdapter;
-import org.pentaho.di.trans.step.StepInterface;
-import org.pentaho.di.trans.step.StepMeta;
-import org.pentaho.di.trans.step.StepMetaDataCombi;
-import org.pentaho.di.trans.step.StepStatus;
+import org.pentaho.di.trans.step.*;
 import org.pentaho.di.www.SlaveServerTransStatus;
 import org.springframework.util.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import java.util.*;
 
 public class TransExecutor implements Runnable {
 	private boolean isClickStop=false;

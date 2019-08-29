@@ -1,6 +1,5 @@
 package org.sxdata.jingwei.service;
 
-import net.sf.json.JSONArray;
 import org.pentaho.di.trans.step.StepStatus;
 import org.sxdata.jingwei.entity.TaskControlEntity;
 

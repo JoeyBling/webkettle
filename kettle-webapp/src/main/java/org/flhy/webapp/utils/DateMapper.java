@@ -1,16 +1,15 @@
 package org.flhy.webapp.utils;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.JsonSerializer;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializerProvider;
 import org.codehaus.jackson.map.ser.CustomSerializerFactory;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DateMapper extends ObjectMapper {
 

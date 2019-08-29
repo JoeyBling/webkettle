@@ -3,16 +3,12 @@ package org.flhy.webapp.trans.steps.Common;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.sxdata.jingwei.entity.SlaveEntity;
-import org.sxdata.jingwei.entity.UserGroupAttributeEntity;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by cRAZY on 2017/5/25.

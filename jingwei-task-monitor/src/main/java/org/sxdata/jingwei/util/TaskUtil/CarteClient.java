@@ -9,7 +9,6 @@ import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.message.BasicHeader;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.defaults.DefaultSqlSessionFactory;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.www.*;
@@ -17,6 +16,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.sxdata.jingwei.entity.SlaveEntity;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,26 +35,28 @@ public class CarteClient implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-            BasicDataSource dataSource=(BasicDataSource)applicationContext.getBean("dataSource");
-            sessionFactory=(DefaultSqlSessionFactory)applicationContext.getBean("sqlSessionFactory");
-            String url=dataSource.getUrl();
-            int a=url.lastIndexOf("/");
-            databaseName=url.substring(a+1,url.length());
-            int c=url.indexOf("/");
-            int d=url.lastIndexOf(":");
-            hostName=url.substring(c+2,d);
+        BasicDataSource dataSource = (BasicDataSource) applicationContext.getBean("dataSource");
+        sessionFactory = (DefaultSqlSessionFactory) applicationContext.getBean("sqlSessionFactory");
+        String url = dataSource.getUrl();
+        int a = url.lastIndexOf("/");
+        databaseName = url.substring(a + 1, url.length());
+        int c = url.indexOf("/");
+        int d = url.lastIndexOf(":");
+        hostName = url.substring(c + 2, d);
 
-        try{
+        try {
             //开启作业定时
             CarteTaskManager.startJobTimeTask(sessionFactory);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
 
     public final static String URL_SUF = "?xml=Y";
-    /**Kettle carte服务 servlet引用地址(统一收集于此处)*/
+    /**
+     * Kettle carte服务 servlet引用地址(统一收集于此处)
+     */
     public final static String CARTE_STATUS = GetStatusServlet.CONTEXT_PATH;
     public final static String SLAVE_STATUS = "/kettle/slaveMonitor";
     public final static String TRANS_STATUS = GetTransStatusServlet.CONTEXT_PATH;
@@ -75,7 +77,7 @@ public class CarteClient implements ApplicationContextAware {
         setSlave(slave);
     }
 
-    public boolean isDBActive(){
+    public boolean isDBActive() {
         boolean dbflag = false;
         try {
             String dbStatus = getDBStatus();
@@ -86,6 +88,7 @@ public class CarteClient implements ApplicationContextAware {
         }
         return dbflag;
     }
+
     public boolean isActive() {
         boolean flag = false;
         try {
@@ -130,8 +133,8 @@ public class CarteClient implements ApplicationContextAware {
 	暂停某个转换
 	 */
     public String pauseTrans(String transId) throws Exception {
-                if (SlaveServerTransStatus.fromXML(getTransStatus(transId)).isRunning() || SlaveServerTransStatus.fromXML(getTransStatus(transId)).isPaused()) {
-                    String urlString = httpUrl + PAUSE_TRANS + "/?" + "xml=Y&id=" + transId;
+        if (SlaveServerTransStatus.fromXML(getTransStatus(transId)).isRunning() || SlaveServerTransStatus.fromXML(getTransStatus(transId)).isPaused()) {
+            String urlString = httpUrl + PAUSE_TRANS + "/?" + "xml=Y&id=" + transId;
             return doGet(urlString);
         } else {
             return "the trans is not running.";
@@ -148,7 +151,7 @@ public class CarteClient implements ApplicationContextAware {
         return doGet(urlString);
     }
 
-    public String getStatusOrNull(){
+    public String getStatusOrNull() {
         boolean flag = false;
         String status = null;
         try {
@@ -162,8 +165,7 @@ public class CarteClient implements ApplicationContextAware {
     }
 
 
-
-    public  String doGet(String urlString) throws IOException {
+    public String doGet(String urlString) throws IOException {
         urlString = Const.replace(urlString, " ", "%20");
         HttpGet httpGet = new HttpGet(urlString);
         if (this.authorization != null) {

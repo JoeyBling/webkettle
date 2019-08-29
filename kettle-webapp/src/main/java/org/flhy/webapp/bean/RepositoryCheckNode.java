@@ -1,9 +1,9 @@
 package org.flhy.webapp.bean;
 
+import org.pentaho.di.repository.RepositoryObjectType;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.pentaho.di.repository.RepositoryObjectType;
 
 public class RepositoryCheckNode extends Ext3CheckableNode {
 

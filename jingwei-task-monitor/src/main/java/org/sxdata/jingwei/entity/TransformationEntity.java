@@ -1,6 +1,5 @@
 package org.sxdata.jingwei.entity;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 /**

@@ -2,7 +2,6 @@ package org.sxdata.jingwei.dao;
 
 import org.springframework.stereotype.Repository;
 import org.sxdata.jingwei.entity.DatabaseConnEntity;
-import org.sxdata.jingwei.entity.SlaveEntity;
 
 import java.util.List;
 

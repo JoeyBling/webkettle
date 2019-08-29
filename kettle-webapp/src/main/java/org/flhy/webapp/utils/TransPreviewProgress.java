@@ -1,8 +1,5 @@
 package org.flhy.webapp.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.pentaho.di.core.exception.KettleException;
 import org.pentaho.di.core.logging.KettleLogStore;
 import org.pentaho.di.core.row.RowMetaInterface;
@@ -12,6 +9,9 @@ import org.pentaho.di.trans.debug.BreakPointListener;
 import org.pentaho.di.trans.debug.StepDebugMeta;
 import org.pentaho.di.trans.debug.TransDebugMeta;
 import org.pentaho.di.trans.step.StepMeta;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TransPreviewProgress {
 	  private TransMeta transMeta;

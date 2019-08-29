@@ -1,13 +1,7 @@
 package org.flhy.ext.job;
 
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.ArrayList;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
+import com.mxgraph.model.mxCell;
+import com.mxgraph.util.mxUtils;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.flhy.ext.core.PropsUI;
@@ -25,8 +19,12 @@ import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import com.mxgraph.model.mxCell;
-import com.mxgraph.util.mxUtils;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.ArrayList;
 
 public class JobHopMetaCodec {
 

@@ -2,7 +2,6 @@ package org.sxdata.jingwei.dao;
 
 import org.pentaho.big.data.impl.cluster.NamedClusterImpl;
 import org.springframework.stereotype.Repository;
-import org.sxdata.jingwei.entity.JobEntity;
 import org.sxdata.jingwei.entity.SlaveEntity;
 
 import java.util.List;

@@ -5,10 +5,11 @@
     <artifactId>kettle</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+
     <modules>
-        <module>kettle-webapp</module>
         <module>kettle-ext</module>
         <module>jingwei-task-monitor</module>
+        <module>kettle-webapp</module>
     </modules>
 
     <properties>
@@ -318,8 +319,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <encoding>${maven.compiler.encoding}</encoding>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>

@@ -8,7 +8,6 @@ import org.flhy.ext.core.PropsUI;
 import org.flhy.ext.trans.step.AbstractStep;
 import org.pentaho.big.data.kettle.plugins.hdfs.trans.HadoopFileInputMeta;
 import org.pentaho.di.core.Const;
-import org.pentaho.di.core.annotations.Step;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.core.util.EnvUtil;
 import org.pentaho.di.trans.step.StepMetaInterface;
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import java.lang.annotation.Annotation;
 import java.util.List;
 
 /**

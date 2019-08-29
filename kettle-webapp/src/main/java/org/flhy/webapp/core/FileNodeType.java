@@ -1,10 +1,10 @@
 package org.flhy.webapp.core;
 
+import org.springframework.util.LinkedCaseInsensitiveMap;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.util.LinkedCaseInsensitiveMap;
 
 public enum FileNodeType {
 

@@ -1,11 +1,5 @@
 package org.flhy.ext.core;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Properties;
-
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.LastUsedFile;
 import org.pentaho.di.core.ObjectUsageCount;
@@ -19,6 +13,8 @@ import org.pentaho.di.core.plugins.PluginInterface;
 import org.pentaho.di.core.plugins.PluginRegistry;
 import org.pentaho.di.ui.core.ConstUI;
 import org.pentaho.di.ui.core.gui.WindowProperty;
+
+import java.util.*;
 
 public class PropsUI extends Props {
 	

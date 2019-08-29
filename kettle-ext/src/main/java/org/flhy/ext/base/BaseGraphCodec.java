@@ -1,9 +1,7 @@
 package org.flhy.ext.base;
 
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
-
+import com.mxgraph.model.mxCell;
+import com.mxgraph.view.mxGraph;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.flhy.ext.App;
@@ -36,8 +34,9 @@ import org.springframework.util.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.mxgraph.model.mxCell;
-import com.mxgraph.view.mxGraph;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 
 public abstract class BaseGraphCodec implements GraphCodec {
 	

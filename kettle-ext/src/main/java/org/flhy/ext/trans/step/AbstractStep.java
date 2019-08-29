@@ -1,22 +1,17 @@
 package org.flhy.ext.trans.step;
 
-import java.util.List;
-
+import com.mxgraph.model.mxCell;
 import org.flhy.ext.utils.JSONObject;
 import org.pentaho.di.cluster.ClusterSchema;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.core.plugins.PluginInterface;
 import org.pentaho.di.core.plugins.PluginRegistry;
 import org.pentaho.di.core.plugins.StepPluginType;
-import org.pentaho.di.trans.step.RowDistributionInterface;
-import org.pentaho.di.trans.step.RowDistributionPluginType;
-import org.pentaho.di.trans.step.StepMeta;
-import org.pentaho.di.trans.step.StepMetaInterface;
-import org.pentaho.di.trans.step.StepPartitioningMeta;
+import org.pentaho.di.trans.step.*;
 import org.pentaho.metastore.api.IMetaStore;
 import org.w3c.dom.Element;
 
-import com.mxgraph.model.mxCell;
+import java.util.List;
 
 public abstract class AbstractStep implements StepEncoder, StepDecoder {
 

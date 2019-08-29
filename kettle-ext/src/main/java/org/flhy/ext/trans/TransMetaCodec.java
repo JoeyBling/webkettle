@@ -1,11 +1,9 @@
 package org.flhy.ext.trans;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Properties;
-
+import com.mxgraph.io.mxCodec;
+import com.mxgraph.model.mxCell;
+import com.mxgraph.util.mxUtils;
+import com.mxgraph.view.mxGraph;
 import org.flhy.ext.App;
 import org.flhy.ext.PluginFactory;
 import org.flhy.ext.base.BaseGraphCodec;
@@ -25,17 +23,12 @@ import org.pentaho.di.cluster.SlaveServer;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.core.gui.Point;
-import org.pentaho.di.core.logging.LogTableField;
-import org.pentaho.di.core.logging.MetricsLogTable;
-import org.pentaho.di.core.logging.PerformanceLogTable;
-import org.pentaho.di.core.logging.StepLogTable;
-import org.pentaho.di.core.logging.TransLogTable;
+import org.pentaho.di.core.logging.*;
 import org.pentaho.di.core.plugins.PluginInterface;
 import org.pentaho.di.core.plugins.PluginRegistry;
 import org.pentaho.di.core.plugins.StepPluginType;
 import org.pentaho.di.core.variables.Variables;
 import org.pentaho.di.core.xml.XMLHandler;
-import org.pentaho.di.laf.BasePropertyHandler;
 import org.pentaho.di.partition.PartitionSchema;
 import org.pentaho.di.repository.HasRepositoryInterface;
 import org.pentaho.di.trans.TransHopMeta;
@@ -51,10 +44,10 @@ import org.springframework.util.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.mxgraph.io.mxCodec;
-import com.mxgraph.model.mxCell;
-import com.mxgraph.util.mxUtils;
-import com.mxgraph.view.mxGraph;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Properties;
 
 @Component(GraphCodec.TRANS_CODEC)
 @Scope("prototype")

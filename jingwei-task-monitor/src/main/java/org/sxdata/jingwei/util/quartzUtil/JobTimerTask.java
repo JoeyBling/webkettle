@@ -1,19 +1,10 @@
 package org.sxdata.jingwei.util.quartzUtil;
 
 import org.flhy.ext.JobExecutor;
-import org.flhy.ext.job.JobExecutionConfigurationCodec;
-import org.flhy.ext.utils.JSONObject;
-import org.flhy.ext.utils.RepositoryUtils;
-import org.pentaho.di.core.Const;
-import org.pentaho.di.job.JobExecutionConfiguration;
-import org.pentaho.di.job.JobMeta;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.sxdata.jingwei.util.TaskUtil.CarteClient;
-import org.sxdata.jingwei.entity.SlaveEntity;
 import org.sxdata.jingwei.entity.UserEntity;
-import org.sxdata.jingwei.util.TaskUtil.CarteTaskManager;
 
 /**
  * Created by cRAZY on 2017/3/6.

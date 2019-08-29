@@ -4,21 +4,22 @@ package org.sxdata.jingwei.util.TaskUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.defaults.DefaultSqlSessionFactory;
 import org.flhy.ext.JobExecutor;
-import org.flhy.ext.PluginFactory;
-import org.flhy.ext.base.GraphCodec;
 import org.flhy.ext.job.JobExecutionConfigurationCodec;
 import org.flhy.ext.utils.RepositoryUtils;
 import org.pentaho.di.job.JobExecutionConfiguration;
 import org.pentaho.di.job.JobMeta;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
-import org.sxdata.jingwei.entity.*;
 import org.sxdata.jingwei.entity.JobEntity;
+import org.sxdata.jingwei.entity.JobTimeSchedulerEntity;
+import org.sxdata.jingwei.entity.UserEntity;
 import org.sxdata.jingwei.service.Impl.JobServiceImpl;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
+
 import static org.quartz.CronScheduleBuilder.cronSchedule;
 import static org.quartz.CronScheduleBuilder.weeklyOnDayAndHourAndMinute;
 import static org.quartz.JobBuilder.newJob;

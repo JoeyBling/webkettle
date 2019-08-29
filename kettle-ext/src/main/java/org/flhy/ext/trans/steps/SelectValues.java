@@ -1,7 +1,7 @@
 package org.flhy.ext.trans.steps;
 
-import java.util.List;
-
+import com.mxgraph.model.mxCell;
+import com.mxgraph.util.mxUtils;
 import org.flhy.ext.core.PropsUI;
 import org.flhy.ext.trans.step.AbstractStep;
 import org.flhy.ext.utils.JSONArray;
@@ -20,8 +20,7 @@ import org.springframework.util.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.mxgraph.model.mxCell;
-import com.mxgraph.util.mxUtils;
+import java.util.List;
 
 @Component("SelectValues")
 @Scope("prototype")

@@ -1,9 +1,7 @@
 package org.sxdata.jingwei.util.TaskUtil;
 
 
-
 import java.math.BigInteger;
-import java.util.List;
 
 /**
  * Desc:

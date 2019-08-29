@@ -1,8 +1,5 @@
 package org.flhy.ext;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
-
 import com.mxgraph.util.mxUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.flhy.ext.Task.ExecutionTraceEntity;
@@ -15,12 +12,7 @@ import org.pentaho.di.cluster.SlaveServer;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.Result;
 import org.pentaho.di.core.gui.JobTracker;
-import org.pentaho.di.core.logging.KettleLogLayout;
-import org.pentaho.di.core.logging.KettleLogStore;
-import org.pentaho.di.core.logging.KettleLoggingEvent;
-import org.pentaho.di.core.logging.LoggingObjectType;
-import org.pentaho.di.core.logging.LoggingRegistry;
-import org.pentaho.di.core.logging.SimpleLoggingObject;
+import org.pentaho.di.core.logging.*;
 import org.pentaho.di.i18n.BaseMessages;
 import org.pentaho.di.job.Job;
 import org.pentaho.di.job.JobEntryResult;
@@ -33,6 +25,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class JobExecutor implements Runnable {
 	private String username;

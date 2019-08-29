@@ -3,7 +3,6 @@ package org.sxdata.jingwei.service.Impl;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.sxdata.jingwei.bean.PageforBean;
 import org.sxdata.jingwei.dao.UserGroupDao;
 import org.sxdata.jingwei.entity.SlaveUserRelationEntity;

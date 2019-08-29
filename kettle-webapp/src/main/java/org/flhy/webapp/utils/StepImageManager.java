@@ -1,23 +1,5 @@
 package org.flhy.webapp.utils;
 
-import java.awt.AlphaComposite;
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
-import java.awt.Transparency;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.Dimension2D;
-import java.awt.image.BufferedImage;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
-
 import org.apache.batik.bridge.BridgeContext;
 import org.apache.batik.bridge.DocumentLoader;
 import org.apache.batik.bridge.GVTBuilder;
@@ -37,6 +19,16 @@ import org.pentaho.di.core.svg.SvgSupport;
 import org.pentaho.di.core.vfs.KettleVFS;
 import org.pentaho.di.ui.util.SwtSvgImageUtil;
 import org.w3c.dom.Document;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Dimension2D;
+import java.awt.image.BufferedImage;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 public class StepImageManager {
 

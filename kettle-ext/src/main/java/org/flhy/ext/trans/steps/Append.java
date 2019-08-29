@@ -1,7 +1,7 @@
 package org.flhy.ext.trans.steps;
 
-import java.util.List;
-
+import com.mxgraph.model.mxCell;
+import com.mxgraph.util.mxUtils;
 import org.flhy.ext.core.PropsUI;
 import org.flhy.ext.trans.step.AbstractStep;
 import org.pentaho.di.core.database.DatabaseMeta;
@@ -14,8 +14,7 @@ import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.mxgraph.model.mxCell;
-import com.mxgraph.util.mxUtils;
+import java.util.List;
 
 @Component("Append")
 @Scope("prototype")

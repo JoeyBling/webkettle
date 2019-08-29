@@ -1,13 +1,10 @@
 package org.sxdata.jingwei.service;
 
 import net.sf.json.JSONObject;
-import org.flhy.ext.JobExecutor;
-import org.sxdata.jingwei.entity.DirectoryEntity;
 import org.sxdata.jingwei.entity.JobEntity;
 import org.sxdata.jingwei.entity.JobTimeSchedulerEntity;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 

@@ -1,19 +1,11 @@
 package org.flhy.ext;
 
-import java.util.ArrayList;
-
-import javax.sql.DataSource;
-
 import org.apache.commons.dbcp.BasicDataSource;
 import org.flhy.ext.core.PropsUI;
 import org.pentaho.di.core.DBCache;
 import org.pentaho.di.core.RowMetaAndData;
 import org.pentaho.di.core.database.DatabaseMeta;
-import org.pentaho.di.core.logging.DefaultLogLevel;
-import org.pentaho.di.core.logging.KettleLogStore;
-import org.pentaho.di.core.logging.LogChannel;
-import org.pentaho.di.core.logging.LogChannelInterface;
-import org.pentaho.di.core.logging.LogLevel;
+import org.pentaho.di.core.logging.*;
 import org.pentaho.di.core.row.RowMeta;
 import org.pentaho.di.job.JobExecutionConfiguration;
 import org.pentaho.di.repository.LongObjectId;
@@ -26,6 +18,9 @@ import org.pentaho.metastore.stores.delegate.DelegatingMetaStore;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+
+import javax.sql.DataSource;
+import java.util.ArrayList;
 
 public class App implements ApplicationContextAware {
 

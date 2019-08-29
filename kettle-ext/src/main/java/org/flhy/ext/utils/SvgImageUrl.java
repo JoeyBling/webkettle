@@ -1,9 +1,9 @@
 package org.flhy.ext.utils;
 
-import java.awt.image.BufferedImage;
-
 import org.pentaho.di.core.plugins.PluginInterface;
 import org.pentaho.di.ui.core.ConstUI;
+
+import java.awt.image.BufferedImage;
 
 public class SvgImageUrl {
 

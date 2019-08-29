@@ -1,12 +1,12 @@
 package org.flhy.webapp.utils;
 
-import java.lang.reflect.InvocationTargetException;
-
 import org.pentaho.di.core.exception.KettleStepException;
 import org.pentaho.di.core.row.RowMetaInterface;
 import org.pentaho.di.i18n.BaseMessages;
 import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.step.StepMeta;
+
+import java.lang.reflect.InvocationTargetException;
 
 public class SearchFieldsProgress {
 	private static Class<?> PKG = SearchFieldsProgress.class; 

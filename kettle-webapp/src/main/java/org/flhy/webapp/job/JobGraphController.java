@@ -1,12 +1,7 @@
 package org.flhy.webapp.job;
 
-import java.io.PrintWriter;
-import java.net.URLDecoder;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.enterprisedt.net.ftp.FTPClient;
+import com.mxgraph.util.mxUtils;
 import org.flhy.ext.App;
 import org.flhy.ext.JobExecutor;
 import org.flhy.ext.PluginFactory;
@@ -14,7 +9,10 @@ import org.flhy.ext.base.GraphCodec;
 import org.flhy.ext.core.database.DatabaseCodec;
 import org.flhy.ext.job.JobExecutionConfigurationCodec;
 import org.flhy.ext.job.step.JobEntryEncoder;
-import org.flhy.ext.utils.*;
+import org.flhy.ext.utils.JSONArray;
+import org.flhy.ext.utils.JSONObject;
+import org.flhy.ext.utils.JsonUtils;
+import org.flhy.ext.utils.StringEscapeHelper;
 import org.flhy.webapp.utils.GetJobSQLProgress;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.RowMetaAndData;
@@ -37,8 +35,6 @@ import org.pentaho.di.job.entry.JobEntryInterface;
 import org.pentaho.di.repository.ObjectId;
 import org.pentaho.di.repository.Repository;
 import org.pentaho.di.repository.RepositorySecurityProvider;
-import org.pentaho.di.repository.kdr.KettleDatabaseRepository;
-import org.pentaho.di.trans.TransMeta;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,10 +42,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.w3c.dom.Element;
 
-import com.enterprisedt.net.ftp.FTPClient;
-import com.mxgraph.util.mxUtils;
-
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
+import java.net.URLDecoder;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value="/job")

@@ -6,7 +6,6 @@ import org.flhy.ext.core.PropsUI;
 import org.flhy.ext.trans.step.AbstractStep;
 import org.flhy.ext.utils.JSONArray;
 import org.flhy.ext.utils.JSONObject;
-import org.pentaho.di.core.Const;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.trans.step.StepMetaInterface;
 import org.pentaho.di.trans.steps.replacestring.ReplaceStringMeta;
