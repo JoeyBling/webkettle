@@ -93,5 +93,18 @@
 6. jdk版本需要```1.8```以上
 7. 管理员账号密码：```admin/admin```
 
+### 本地预览
+```bash
+mvn install
+cd ./kettle-webapp
+mvn clean tomcat7:run
+```
+
+### 编译部署
+```bash
+cd ./kettle-webapp
+mvn clean tomcat7:deploy
+```
+
 # 许可证
 [![LICENSE](https://img.shields.io/github/license/JoeyBling/webkettle "LICENSE")](./LICENSE "LICENSE")
