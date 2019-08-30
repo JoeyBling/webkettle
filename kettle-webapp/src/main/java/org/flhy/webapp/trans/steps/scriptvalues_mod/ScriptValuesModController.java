@@ -3,6 +3,7 @@ package org.flhy.webapp.trans.steps.scriptvalues_mod;
 import com.mxgraph.model.mxCell;
 import com.mxgraph.model.mxGeometry;
 import com.mxgraph.util.mxUtils;
+import com.mxgraph.util.mxXmlUtils;
 import org.flhy.ext.PluginFactory;
 import org.flhy.ext.base.GraphCodec;
 import org.flhy.ext.trans.steps.RowGenerator;
@@ -19,8 +20,8 @@ import org.pentaho.di.compatibility.Value;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.row.RowMeta;
 import org.pentaho.di.core.row.RowMetaInterface;
-import org.pentaho.di.core.row.ValueMeta;
 import org.pentaho.di.core.row.ValueMetaInterface;
+import org.pentaho.di.core.row.value.ValueMetaBase;
 import org.pentaho.di.i18n.BaseMessages;
 import org.pentaho.di.trans.TransHopMeta;
 import org.pentaho.di.trans.TransMeta;
@@ -240,10 +241,12 @@ public class ScriptValuesModController {
             Scriptable jsR = Context.toObject(script.getScript(), jsscope);
             jsscope.put(script.getScriptName(), jsscope, jsR);
 
-            if (script.isStartScript())
+            if (script.isStartScript()) {
                 strStartScript = script.getScript();
-            if (script.getScriptName().equals(scriptName))
+            }
+            if (script.getScriptName().equals(scriptName)) {
                 scr = script.getScript();
+            }
         }
 
         jsscope.put("_TransformationName_", jsscope, stepName);
@@ -383,7 +386,7 @@ public class ScriptValuesModController {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("name", varname);
                     jsonObject.put("rename", "");
-                    jsonObject.put("type", ValueMeta.getTypeDesc(type));
+                    jsonObject.put("type", ValueMetaBase.getTypeDesc(type));
                     jsonObject.put("length", length >= 0 ? String.valueOf(length) : "");
                     jsonObject.put("precision", precision >= 0 ? String.valueOf(precision) : "");
                     jsonObject.put("replace", (rowMeta.indexOfValue(varname) >= 0) ? "Y" : "N");
@@ -464,7 +467,7 @@ public class ScriptValuesModController {
             e.setAttribute("ctype", "RowGenerator");
             e.setAttribute("copies", "1");
 
-            JsonUtils.responseXml(mxUtils.getXml(e));
+            JsonUtils.responseXml(mxXmlUtils.getXml(e));
         }
     }
 
@@ -475,7 +478,7 @@ public class ScriptValuesModController {
         TransMeta transMeta = (TransMeta) codec.decode(graphXml);
         StepMeta scriptStep = transMeta.findStep(stepName);
 
-        Document doc = mxUtils.parseXml(rowGenerator);
+        Document doc = mxXmlUtils.parseXml(rowGenerator);
 
         RowGenerator rg = (RowGenerator) PluginFactory.getBean("RowGenerator");
         mxCell cell = new mxCell(doc.getDocumentElement());
@@ -545,9 +548,9 @@ public class ScriptValuesModController {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if (!StringUtils.hasText(string))
+                    if (!StringUtils.hasText(string)) {
                         string = "&lt;null&gt;";
-
+                    }
                     ValueMetaInterface valueMeta = rowMeta.getValueMeta(colNr);
                     row.put(valueMeta.getName(), string);
                 }
