@@ -62,8 +62,8 @@
         <!--192.168.1.201:3306   hadoop-->
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/kettle"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
+        <property name="username" value="kettle"/>
+        <property name="password" value="kettle123"/>
     </bean>
 
     <!-- spring集成MyBatis3 -->
