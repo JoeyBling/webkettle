@@ -86,12 +86,12 @@
             <artifactId>kettle-json-plugin</artifactId>
             <version>7.1.0.0-12</version>
         </dependency>
+
         <!--<dependency>-->
         <!--<groupId>pentaho</groupId>-->
         <!--<artifactId>pentaho-big-data-plugin</artifactId>-->
         <!--<version>7.1.0.0-12</version>-->
         <!--</dependency>-->
-
 
         <dependency>
             <groupId>pentaho</groupId>
@@ -344,20 +344,51 @@
         </profile>
     </profiles>
 
+    <!-- Maven项目的远程仓库 -->
     <repositories>
+        <!-- https://repo.pentaho.org/ -->
         <repository>
-            <id>pentaho-releases</id>
+            <id>pentaho-nexus</id>
             <name>Kettle</name>
             <url>https://nexus.pentaho.org/content/groups/omni/</url>
         </repository>
+
         <!-- 阿里云maven仓库 -->
         <repository>
-            <id>public</id>
-            <name>aliyun nexus</name>
+            <id>aliyun_nexus</id>
+            <name>aliyun_nexus</name>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
         </repository>
     </repositories>
+
+    <!-- Maven插件的远程仓库 -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>pentaho-nexus</id>
+            <name>pentaho-nexus</name>
+            <url>https://nexus.pentaho.org/content/groups/omni/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>aliyun_nexus</id>
+            <name>aliyun_nexus</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
 </project>
