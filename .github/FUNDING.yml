@@ -9,4 +9,4 @@ community_bridge: # Replace with a single Community Bridge project-name e.g., cl
 liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
-custom: [https://zhousiwei.gitee.io/ibooks/about/#%E6%89%93%E8%B5%8F, https://joeybling.github.io/ibooks/about/#%E6%89%93%E8%B5%8F]
+custom: ["https://zhousiwei.gitee.io/ibooks/about/#%E6%89%93%E8%B5%8F", "https://joeybling.github.io/ibooks/about/#%E6%89%93%E8%B5%8F"]
